@@ -2,7 +2,7 @@ import React from "react";
 
 import Icon from "../../components/common/AuthHeader/Icon";
 import AuthHeader from "../../components/common/AuthHeader";
-import MainBox from "../../components/register/MainBox";
+import MainBox_step_1 from "../../components/register/MainBox_step_1";
 import { Outlet } from "react-router-dom";
 const RegisterPage = () => {
   return (
