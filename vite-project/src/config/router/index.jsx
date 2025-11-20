@@ -3,6 +3,7 @@ import React, { Children, Component } from "react";
 import RegisterPage from "../../screens/registerPage";
 import MainBox_step_1 from "../../components/register/MainBox_step_1";
 import MainBox_step_2 from "../../components/register/MainBox_step_2";
+import MainBox_step_3 from "../../components/register/MainBox_step_3";
 const Router = createBrowserRouter([
   {
     path: "/",
@@ -13,7 +14,8 @@ const Router = createBrowserRouter([
         path:"step1",
         Component: MainBox_step_1,
       },
-      {path:"step2",Component:MainBox_step_2}
+      {path:"step2",Component:MainBox_step_2},
+      {path:"step3",Component:MainBox_step_3}
     ],
   },
 ]);

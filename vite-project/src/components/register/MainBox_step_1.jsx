@@ -3,7 +3,7 @@ import RegisterButton from "./Register_button";
 
 const MainBox_step_1 = () => {
   return (
-    <div className="w-[430px] h-[265px] flex flex-col items-center">
+    <div className="w-[430px]  flex flex-col items-center">
       <p className="text-lg select-none">{"خوش امدید :)"}</p>
       <h3 className="text-xl font-bold mt-[4px] select-none">
         {"ایجاد حساب کاربری"}
