@@ -1,25 +1,32 @@
-import React from 'react'
+import React from "react";
 
-import CoursesDetailLeft from './CoursesDetailLeft'
+import CoursesDetailLeft from "./CoursesDetailLeft";
 
-import CoursesDetailsRight from './CoursesDetailsRight';
+import CoursesDetailsRight from "./CoursesDetailsRight";
+import { useParams } from "react-router-dom";
 
 const CoursesDetails = () => {
+  const { id } = useParams();
 
   
+
+
+
+
+
   return (
     <div>
       {/* up */}
-      <div className='flex justify-center gap-5 mt-40 mx-auto items-center w-full h-full'>
+      <div className="flex justify-center gap-5 mt-40 mx-auto items-center w-full h-full">
         {/* right */}
-          <CoursesDetailsRight/>
+        <CoursesDetailsRight />
         {/* left */}
-          <CoursesDetailLeft/>
+        <CoursesDetailLeft />
       </div>
       {/* downe */}
       <div></div>
     </div>
-  )
-}
+  );
+};
 
-export default CoursesDetails
+export default CoursesDetails;

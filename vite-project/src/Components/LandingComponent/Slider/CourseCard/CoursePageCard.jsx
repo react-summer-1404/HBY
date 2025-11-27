@@ -1,9 +1,11 @@
 // CourseCard.jsx
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 //کپی از کارت برای سایز کوچکتر در صفحه کورس
 export default function CoursePageCard({
-  title = "عنوان دوره",
+  title,
+  cost,courseId,
   instructor = "استاد",
   students = 0,
   startsAt = "تاریخ",
@@ -25,7 +27,6 @@ export default function CoursePageCard({
       />
 
       <div className="absolute inset-0 m-3 rounded-[34px] bg-white/90 pointer-events-none" />
-
 
       <div
         dir="rtl"
@@ -87,15 +88,15 @@ export default function CoursePageCard({
 
           <div className="flex items-center justify-between gap-4">
             <div className="flex-1 text-right">
-              <h3 className="text-white text-[20px] font-extrabold leading-6">
+              <NavLink to={`/courcesDetails/${courseId}`} className="text-white text-[20px] font-extrabold leading-6">
                 {title}
-              </h3>
+              </NavLink>
 
               <div className="mt-2 flex flex-wrap items-center gap-3 text-white/80 text-[13px]">
                 <div className="flex items-center justify-around flex-wrap gap-20">
                   {/* tichar */}
                   <div className="flex items-center gap-2 w-32">
-                     <svg
+                    <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="w-4 h-4"
                       viewBox="0 0 24 24"
@@ -120,25 +121,24 @@ export default function CoursePageCard({
                   </div>
                   {/* /student */}
                   <div className="flex items-end gap-2 ">
-                      <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-4 h-4"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                  >
-                    <path
-                      d="M16 11c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM8 11c1.657 0 3-1.343 3-3S9.657 5 8 5 5 6.343 5 8s1.343 3 3 3zM12 14c-4 0-7 2-7 4v1h14v-1c0-2-3-4-7-4z"
-                      stroke="currentColor"
-                      strokeWidth="1.0"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-4 h-4"
+                      viewBox="0 0 24 24"
                       fill="none"
-                    />
-                  </svg>
+                    >
+                      <path
+                        d="M16 11c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM8 11c1.657 0 3-1.343 3-3S9.657 5 8 5 5 6.343 5 8s1.343 3 3 3zM12 14c-4 0-7 2-7 4v1h14v-1c0-2-3-4-7-4z"
+                        stroke="currentColor"
+                        strokeWidth="1.0"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        fill="none"
+                      />
+                    </svg>
                     <span className="mt-2 flex flex-wrap items-center gap-3 text-white/80 text-[13px]">
                       {students} دانشجو
                     </span>
-                   
                   </div>
                 </div>
 
@@ -173,7 +173,7 @@ export default function CoursePageCard({
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="text-white text-lg font-extrabold">
-                    {price}
+                    {cost}
                   </div>
                   <button className="px-4 py-2 rounded-full border border-white/30 bg-transparent text-white text-sm font-medium">
                     مشاهده دوره

@@ -7,7 +7,7 @@ const apiClient = axios.create({
 });
 
 const onSuccess = (response) => {
-  return response.data;
+  return response;
 };
 
 const onError = (error) => {
@@ -18,12 +18,12 @@ const onError = (error) => {
 
 apiClient.interceptors.response.use(onSuccess, onError);
 
-apiClient.interceptors.request.use((otp) => {
+apiClient.interceptors.request.use((opt) => {
   let token = localStorage.getItem("token");
   token = JSON.parse(token);
 
   if (token) opt.headers.Authorization = "Bearer " + token.token;
-  return otp;
+  return opt;
 });
 
 export default apiClient;

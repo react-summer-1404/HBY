@@ -18,10 +18,10 @@
 //     (currentPage - 1) * itemsPerPage,
 //     currentPage * itemsPerPage
 //   );
-  
+
 //   const handlePageChange = (page) => {
 //     setCurrentPage(page);
-//     window.scrollTo({ top: 0, behavior: "smooth" }); 
+//     window.scrollTo({ top: 0, behavior: "smooth" });
 //    };
 
 //   return (
@@ -43,7 +43,7 @@
 //               ))}
 //             </div>
 //           </div>
-          
+
 //            {/* Pagination */}
 //         <div className="flex justify-center mt-10 mb-10">
 //           <Pagination
@@ -72,6 +72,8 @@ import { Pagination } from "antd";
 import "antd/dist/reset.css";
 import FilterCourses from "../common/FilterCourses";
 import HederDore from "../common/hederDore";
+import CoursePageCard2 from "../LandingComponent/Slider/CourseCard/CourseCard2";
+import apiClient from "../../core/services/interceptor";
 
 const CardCoursesPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -106,6 +108,24 @@ const CardCoursesPage = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const [isList, setisList] = useState(false);
+
+  const handleView = () => {
+    setisList(!isList);
+  };
+
+  const [courses, setcourses] = useState([]);
+
+  const getCourses = async () => {
+    const res = await apiClient.get("/Home/GetCoursesWithPagination");
+    console.log(res.data)
+    setcourses(res.data);
+  };
+
+  useEffect(() => {
+    getCourses();
+  }, []);
+
   return (
     <>
       <div className="w-full flex gap-5 mt-10 h-auto pb-15">
@@ -114,16 +134,22 @@ const CardCoursesPage = () => {
 
         {/* کل دوره ها */}
         <div className=" w-full">
-          <HederDore />
+          <HederDore handleView={handleView} />
 
           {/* دوره ها */}
           <div className=" mt-7 w-full flex justify-center">
             <div className=" mt-7 flex flex-row flex-wrap items-center justify-between w-[1000px]">
-              {currentData.map((course) => (
-                <div className="mx-auto mb-5 lg:mx-0" key={course.id}>
-                  <CoursePageCard />
-                </div>
-              ))}
+              {isList === true
+                ? courses?.courseFilterDtos?.map((item) => (
+                    <div className="mx-auto mb-5 lg:mx-0" >
+                      <CoursePageCard title={item.title} cost={item.cost} courseId={item.courseId} />
+                    </div>
+                  ))
+                : currentData.map((course) => (
+                    <div className="mx-auto mb-5 lg:mx-0" key={course.id}>
+                      <CoursePageCard2 />
+                    </div>
+                  ))}
             </div>
           </div>
 

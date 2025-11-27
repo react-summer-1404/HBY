@@ -6,7 +6,7 @@ import PriceDore from './priceDore'
 
 const FilterCourses = () => {
   return (
-    <div className="lg:block hidden w-[550px] h-[500px] pr-13 ">
+  <div className="lg:block hidden w-[550px] h-[500px] pr-13 ">
     <div className="w-[300px] h-[480px] shadow-2xl rounded-[8px] shadow-gray-400 p-4 dark:bg-gray-950 dark:shadow-gray-700">
         {/* هدر فیلتر */}
       <div className=" w-[268px] h-[40px] flex space-x-14">

@@ -31,13 +31,14 @@ const Router= createBrowserRouter(
           element:<CoursesPage/>
         },
         {
-          path:'/cource2',
-          element:<CoursesPage2/>
-        },
-        {
-          path:'/courcesDetails',
+          path:'/courcesDetails/:id',
           element:<CoursesDetails/>
         }
+
+        // {
+        //   path:'/cource2',
+        //   element:<CoursesPage2/>
+        // },
 
       ]
     },
