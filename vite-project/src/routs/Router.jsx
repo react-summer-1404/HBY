@@ -4,6 +4,7 @@ import Landing from "../screens/Landing/Landing";
 import RegisterPage from "../screens/registerPage"
 import LayOut from '../LayOut/LayOut';
 import Login from '../screens/login/login';
+import Loginnum from '../screens/login/loginnum';
 import CoursesPage from '../Components/CoursesComponent/CoursesPage';
 import CoursesDetails from '../Components/CoursesDetails/CoursesDetails';
 import CoursePageCard2 from '../Components/LandingComponent/Slider/CourseCard/CourseCard2';
@@ -43,6 +44,10 @@ const Router= createBrowserRouter(
     {
           path:'/login',
           element:<Login/>
+        },  
+          {
+          path:'/loginnum',
+          element:<Loginnum/>
         },  
   ]
 )

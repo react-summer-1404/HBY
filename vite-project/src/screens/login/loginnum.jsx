@@ -11,11 +11,11 @@ import logodr2 from "./../../assets/login/logodr2.svg";
 import wizard from "./../../assets/login/wizard.svg";
 import Home4 from "./../../assets/login/Home 4.svg";
 
-export const Login = () => {
-  const [showPassword, setShowPassword] = useState(false) ;
-  const navigate = useNavigate();
-  const loginnumclic = () => {
-    navigate("/loginnum");
+export const Loginnum = () => {
+  const [showPassword, setShowPassword] = useState(false);
+    const navigate = useNavigate();
+  const loginclic = () => {
+    navigate("/login");
   };
 
   return (
@@ -55,28 +55,26 @@ export const Login = () => {
       
           {/* بخش راست - فرم ورود */}
           <div className="lg:top-[200px] relative top-[300px] w-[700px] h-[500px] flex flex-col justify-center items-center px-14 py-10 lg:bg-[#F5F5F5] bg-[#3C8B85] ">
-
              {/* نوار  lg */}
              <img  src={bgimg} className="w-[800px]  absolute -z-[2px] top-[-50px] lg:hidden"/>
-
             <h2 className="text-gray-700 mb-2 text-base z-1">خوش آمدی )</h2>
             <h1 className="text-3xl font-bold text-gray-900 mb-8 z-1">
               ورود به حساب کاربری
             </h1>
 
             <div className=" w-full z-1">
-              <link className="block text-gray-600 text-base mb-3 " /> 
-                ورود با{""}
-                <span onClick={loginnumclic} className="text-purple-600 font-medium cursor-pointer">
-                  شماره همراه
+              <label className="block text-gray-600 text-base mb-3 ">
+                ورود با{" "}
+                <span onClick={loginclic} className="text-purple-600 font-medium cursor-pointer">
+                    ایمیل
                 </span>
-              <link/>
+              </label>
 
-              {/* فیلد ایمیل */}
+              {/* فیلد شماره همراه */}
               <div className="relative mb-5 ">
                 <input
                   type="email"
-                  placeholder="ایمیل"
+                  placeholder="شماره همراه"
                   className="w-full border border-gray-300 rounded-lg p-4 pr-10 text-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-400 text-base"
                 />
                 <FaUser className="absolute right-3 top-4 text-gray-400" />
@@ -139,4 +137,4 @@ export const Login = () => {
   );
 };
 
-export default Login;
+export default Loginnum;
