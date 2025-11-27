@@ -51,7 +51,7 @@ const Footer = () => {
       </div>
 
       <div className="bg-[#9B0EE1] w-full h-full">
-        <div className='flex flex-col lg:flex-row justify-center items-center lg:justify-between mb-10 mx-18 py-10 gap-10'>
+        <div className='flex flex-col lg:flex-row justify-center items-center lg:justify-between  mx-18 py-10 gap-10'>
 
           {/* ارتباط با ما — در موبایل آخر، در lg اول (سمت راست) */}
           <div className='w-full lg:w-[20%] text-white font-bold flex flex-col  items-center gap-3 

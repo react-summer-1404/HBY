@@ -5,6 +5,9 @@ import RegisterPage from "../screens/registerPage"
 import LayOut from '../LayOut/LayOut';
 import Login from '../screens/login/login';
 import CoursesPage from '../Components/CoursesComponent/CoursesPage';
+import CoursesDetails from '../Components/CoursesDetails/CoursesDetails';
+import CoursePageCard2 from '../Components/LandingComponent/Slider/CourseCard/CourseCard2';
+import CoursesPage2 from '../Components/CoursesComponent/coursesPage2';
 // import { Login } from '../screens/login/login';
 
 const Router= createBrowserRouter(
@@ -25,7 +28,16 @@ const Router= createBrowserRouter(
         {
           path:'/cource',
           element:<CoursesPage/>
+        },
+        {
+          path:'/cource2',
+          element:<CoursesPage2/>
+        },
+        {
+          path:'/courcesDetails',
+          element:<CoursesDetails/>
         }
+
       ]
     },
     {

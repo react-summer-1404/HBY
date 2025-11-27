@@ -5,7 +5,7 @@ const InputSearch = ({titel , color} ) => {
     <div>
       
 
-<form class="max-w-lg mx-auto">
+<form class="lg:w-[500px]  w-[350px] mx-auto">
     <div class="flex">
        
              
