@@ -4,7 +4,7 @@ import RegisterButton from "../register/Register_button";
 const ForgetPassBox_1 = () => {
   return (
     
-    <div className="flex flex-col justify-center items-center bg-[#F5F5F5] shadow-[rgba(60, 139, 133, 0.25)] rounded-[20px]  w-[561px] h-[491px] px-[32px] py-[64px]">
+    <div className="flex flex-col justify-center items-center bg-[#F5F5F5] shadow-box rounded-t-[30px] mt-[100px] md:rounded-[20px] md:w-[561px] md:h-[491px] px-[32px] py-[64px]">
       <p className="text-lg select-none">{"خوش امدید :)"}</p>
       <h3 className="text-xl font-bold mt-[4px] select-none mx-auto">
         {"ایجاد حساب کاربری"}

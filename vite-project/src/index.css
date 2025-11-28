@@ -6,6 +6,7 @@
 @theme{
     --font-vazir:"vazir",vazir;
     --breakpoint-biggerxl:89rem;
+    --shadow-box:0px 5px 5px rgba(60, 139, 133, 0.25);
 }
 .rtl{
     direction: rtl;
