@@ -14,7 +14,7 @@ const MainBox_step_1 = () => {
           placeholder="شماره تلفن همراه..."
         />
         <img
-          src="register/phone_black.png"
+          src="/register/phone_black.png"
           className="h-[30px] w-[30px] absolute top-[36px] right-[5px] my-1 "
         />
       </div>

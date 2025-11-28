@@ -1,7 +1,7 @@
 import React from "react";
 import RegisterButton from "./Register_button";
 import { NavLink } from "react-router-dom";
-import { OTPInput,SlotProps } from "input-otp";
+import { OTPInput } from "input-otp";
 const MainBox_step_2 = () => {
   return (
     <div className="w-[430px]  flex flex-col items-center">

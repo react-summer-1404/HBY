@@ -1,10 +1,11 @@
 @import "tailwindcss";
 @font-face {
     font-family:vazir;
-    src: url("fonts/vazir.ttf");
+    src: url("/fonts/vazir.ttf");
 }
 @theme{
     --font-vazir:"vazir",vazir;
+    --breakpoint-biggerxl:89rem;
 }
 .rtl{
     direction: rtl;

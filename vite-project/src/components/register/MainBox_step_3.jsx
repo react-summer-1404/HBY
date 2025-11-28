@@ -15,7 +15,7 @@ const MainBox_step_1 = () => {
           
         />
         <img
-          src="register/email.png"
+          src="/register/email.png"
           className="h-[20px] w-[20px] absolute bottom-[10.5px] right-[8px] my-1 "
         />
       </div>
@@ -26,7 +26,7 @@ const MainBox_step_1 = () => {
           type="password"
         />
         <img
-          src="register/password.png"
+          src="/register/password.png"
           className="h-[20px] w-[20px] absolute bottom-[10.5px] right-[8px] my-1 "
         />
       </div>
@@ -37,7 +37,7 @@ const MainBox_step_1 = () => {
           type="password"
         />
         <img
-          src="register/password.png"
+          src="/register/password.png"
           className="h-[20px] w-[20px] absolute bottom-[10.5px] right-[8px] my-1 "
         />
       </div>
