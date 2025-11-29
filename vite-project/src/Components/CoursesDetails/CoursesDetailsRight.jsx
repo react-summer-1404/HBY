@@ -3,6 +3,7 @@ import Rectangle from './Rectangle';
 import { PiStar } from "react-icons/pi";
 import { AiOutlineLike } from "react-icons/ai";
 import { AiOutlineDislike } from "react-icons/ai";
+import StarCourceDetails from "../common/StarCourceDetails";
 
 
 const CoursesDetailsRight = () => {
@@ -19,13 +20,13 @@ const CoursesDetailsRight = () => {
         کاملا پروژه محور و کاربردی یاد میگیرید!
       </p>
       <img className="mb-6" src="../../../public/profesore/coursD.png" alt="" />
-      <div className="h-[30px] w-[1000px] flex mr-25">
+      <div className="h-[30px] w-[1100px] flex mr-25">
         <div className="flex gap-1 ml-72">
           <p className="text-cyan-700 font-bold dark:text-emerald-300 mr-3 ml-2">
             میتونی به ما امتیاز بدی
           </p>
-          <div className="mt-1.5 flex gap-1">
-            <PiStar /> <PiStar /> <PiStar /> <PiStar /> <PiStar />
+          <div className="mt-1 flex gap-1">
+            <StarCourceDetails/>
           </div>
         </div>
         <div className="flex mr-55">

@@ -1,70 +1,4 @@
-// import React, { useState } from "react";
-// // import InputSearch from '../LandingComponent/HeroLanding/HerosectionRight/InputSearch'
-// // import CourseCard from '../LandingComponent/Slider/CourseCard/CourseCard'
-// import data from "../CoursesComponent/data.json";
-// import CoursePageCard from "../LandingComponent/Slider/CourseCard/CoursePageCard";
-// import { Pagination } from "antd";
-// import "antd/dist/reset.css";
-// import FilterCourses from "../common/FilterCourses";
-// import HederDore from "../common/hederDore";
 
-// const CardCoursesPage = () => {
-//   const [currentPage, setCurrentPage] = useState(1);
-//   const itemsPerPage = 9;
-
-//   const totalItems = data.length;
-
-//   const currentData = data.slice(
-//     (currentPage - 1) * itemsPerPage,
-//     currentPage * itemsPerPage
-//   );
-
-//   const handlePageChange = (page) => {
-//     setCurrentPage(page);
-//     window.scrollTo({ top: 0, behavior: "smooth" });
-//    };
-
-//   return (
-//     <>
-//       <div className="w-full  flex  gap-5  mt-10 h-auto  pb-15">
-//         {/* فیلتر */}
-//           <FilterCourses/>
-//         {/* کل دوره ها */}
-//         <div className="border-2 border-amber-600 w-full ">
-//           {/* هدر دوره ها */}
-//         <HederDore/>
-//           {/* دوره ها */}
-//           <div className="border-2   border-cyan-400 mt-7 w-full h-[1336px] flex justify-center">
-//             <div className="border-2 border-amber-300 mt-7 flex flex-row flex-wrap items-center justify-between  w-[1200px] h-[1336px]">
-//               {currentData.map((course) => (
-//                 <div className="mx-auto  mb-5 lg:mx-0" key={course.id}>
-//                   <CoursePageCard />
-//                 </div>
-//               ))}
-//             </div>
-//           </div>
-
-//            {/* Pagination */}
-//         <div className="flex justify-center mt-10 mb-10">
-//           <Pagination
-//             current={currentPage}
-//             pageSize={itemsPerPage}
-//             total={totalItems}
-//             onChange={handlePageChange}
-//             showSizeChanger={false} // کاربر نتونه تعداد آیتم صفحه رو تغییر بده
-//             showLessItems // حداکثر ۵ صفحه در شماره صفحه
-//             direction="rtl"
-//             prevIcon="<"
-//             nextIcon=">"
-//           />
-//         </div>
-//         </div>
-//       </div>
-//     </>
-//   );
-// };
-
-// export default CardCoursesPage;
 import React, { useState, useEffect } from "react";
 import data from "../CoursesComponent/data.json";
 import CoursePageCard from "../LandingComponent/Slider/CourseCard/CoursePageCard";
@@ -142,12 +76,12 @@ const CardCoursesPage = () => {
               {isList === true
                 ? courses?.courseFilterDtos?.map((item) => (
                     <div className="mx-auto mb-5 lg:mx-0" >
-                      <CoursePageCard title={item.title} cost={item.cost} courseId={item.courseId} />
+                      <CoursePageCard2 title={item.title} cost={item.cost} courseId={item.courseId} />
                     </div>
                   ))
                 : currentData.map((course) => (
                     <div className="mx-auto mb-5 lg:mx-0" key={course.id}>
-                      <CoursePageCard2 />
+                      <CoursePageCard />
                     </div>
                   ))}
             </div>

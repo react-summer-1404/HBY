@@ -194,8 +194,8 @@ const CardCoursesPage2 = () => {
             pageSize={itemsPerPage}
             total={totalItems}
             onChange={handlePageChange}
-            showSizeChanger={false} // کاربر نتونه تعداد آیتم صفحه رو تغییر بده
-            showLessItems // حداکثر ۵ صفحه در شماره صفحه
+            showSizeChanger={false} 
+            showLessItems 
             direction="rtl"
             prevIcon="<"
             nextIcon=">"
