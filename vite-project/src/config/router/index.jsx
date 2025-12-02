@@ -10,24 +10,24 @@ import ForgetPassBox_1 from "../../components/forgetPass/ForgetPassBox_1";
 import ForgetPassBox_2 from "../../components/forgetPass/ForgetPassBox_2";
 const Router = createBrowserRouter([
   {
-    path: "/register",
-    Component: RegisterPage,
+    path: "register",
+    element: <RegisterPage />,
     children: [
       {
         index: true,
         path: "step1",
-        Component: MainBox_step_1,
+        element: <MainBox_step_1 />,
       },
-      { path: "step2", Component: MainBox_step_2 },
-      { path: "step3", Component: MainBox_step_3 },
+      { path: "step2", element: <MainBox_step_2 /> },
+      { path: "step3", element: <MainBox_step_3 /> },
     ],
   },
   {
-    path: "/forgetPass",
-    Component: ForgetPass,
+    path: "forgetPass",
+    element: <ForgetPass />,
     children: [
-      { path: "step1", Component: ForgetPassBox_1 },
-      { path: "step2", Component: ForgetPassBox_2 },
+      { path: "step1", element: <ForgetPassBox_1 /> },
+      { path: "step2", element: <ForgetPassBox_2 /> },
     ],
   },
 ]);
