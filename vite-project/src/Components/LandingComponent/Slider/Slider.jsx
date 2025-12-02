@@ -1,9 +1,11 @@
 // Slider.jsx
+import { useNavigate } from "react-router-dom";
 import SearchButton from "../../common/SearchButton";
 import CourseCard from "./CourseCard/CourseCard";
 import SwiperComponent from "./swiper/SwiperComponent";
 
 export default function Slider() {
+
   const slides = [
     <CourseCard
       key={1}
@@ -58,7 +60,11 @@ export default function Slider() {
       bgImage="/slider/Img.svg"
     />,
   ];
-
+   
+  const navigate=useNavigate();
+  const gotocoursepage = () => {
+    navigate("/cource")
+  }
   return (
     <>
       <div className="flex flex-col justify-center items-center my-10  overflow-hidden">
@@ -88,7 +94,8 @@ export default function Slider() {
       ))}
       </div>
       <div className=" flex justify-around mt-2 mb-5 h-10">
-        <button className="border-2 border-fuchsia-700 p-1 rounded-2xl text-xl mr-230 text-fuchsia-700 dark:border-fuchsia-500 dark:text-white">
+        <button className="border-2 border-fuchsia-700 p-1 rounded-2xl text-xl mr-230 text-fuchsia-700 dark:border-fuchsia-500 dark:text-white"
+        onClick={gotocoursepage}>
           مشاهده همه
         </button>
       </div>

@@ -1,5 +1,6 @@
 // CourseCard.jsx
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 9
 export default function CourseCard({
@@ -11,6 +12,11 @@ export default function CourseCard({
   rating = 0,
   bgImage = null,
 }) {
+  const navigate = useNavigate();
+
+  const gotocoursdetails= () => {
+    navigate("/courcesDetails/:id")
+  }
   return (
     <div className="relative w-[340px] h-[450px] flex items-center justify-center my-20">
       {/* glow */}
@@ -175,7 +181,9 @@ export default function CourseCard({
                   <div className="text-white text-lg font-extrabold">
                     {price}
                   </div>
-                  <button className="px-4 py-2 rounded-full border border-white/30 bg-transparent text-white text-sm font-medium">
+                  <button className="px-4 py-2 rounded-full border
+                   border-white/30 bg-transparent text-white text-sm font-medium"
+                   onClick={gotocoursdetails}>
                     مشاهده دوره
                   </button>
                 </div>

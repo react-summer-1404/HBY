@@ -9,11 +9,13 @@ import CoursesPage from '../Components/CoursesComponent/CoursesPage';
 import CoursesDetails from '../Components/CoursesDetails/CoursesDetails';
 import CoursePageCard2 from '../Components/LandingComponent/Slider/CourseCard/CourseCard2';
 import CoursesPage2 from '../Components/CoursesComponent/coursesPage2';
+import ScrollToTop from '../Components/Scrolltoup/ScrollToTop';
 // import { Login } from '../screens/login/login';
 
 const Router= createBrowserRouter(
+  
   [
-    {
+       {
       path:"/",
       element:<LayOut/>,
       children:[

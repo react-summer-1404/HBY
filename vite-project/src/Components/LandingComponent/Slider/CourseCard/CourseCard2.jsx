@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 import { CiStar } from "react-icons/ci";
+import { useNavigate } from "react-router-dom";
 
 export default function PreviewCourseCard() {
   const [liked, setLiked] = useState(false);
+  
+  const navigate = useNavigate();
+  const gotocourseditails= () => {
+    navigate("/courcesDetails/:id")
+  }
 
   return (
     <div
@@ -28,7 +34,8 @@ export default function PreviewCourseCard() {
           <div className="text-purple-600 text-xl font-extrabold dark:text-fuchsia-400">
             3,500,000 تومان
           </div>
-          <button className="px-5 py-2 border border-purple-500 text-purple-600 rounded-full dark:text-fuchsia-400 hover:bg-purple-300 transition">
+          <button className="px-5 py-2 border border-purple-500 text-purple-600 rounded-full dark:text-fuchsia-400 hover:bg-purple-300 transition"
+          onClick={gotocourseditails}>
             مشاهده دوره
           </button>
         </div>
