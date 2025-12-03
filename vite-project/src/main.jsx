@@ -7,6 +7,6 @@ import {Router} from './config/router/index.jsx'
 
 createRoot(document.getElementById('root')).render(
 
-  <RouterProvider router={Router} />
+  <App/>
   ,
 )
