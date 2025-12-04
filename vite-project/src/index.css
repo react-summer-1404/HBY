@@ -1,2 +1,15 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
+
+@font-face {
+    font-family:vazir;
+    src: url("/fonts/vazir.ttf");
+}
+@theme{
+    --font-vazir:"vazir",vazir;
+    --breakpoint-biggerxl:89rem;
+    --shadow-box:0px -10px 28px 1px rgba(60, 139, 133, 0.20);
+}
+.rtl{
+    direction: rtl;
+    }
