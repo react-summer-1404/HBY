@@ -4,12 +4,12 @@ import AttributeBox from "./AttributeBox";
 const TeachersBox = ({ src, teacherName, description }) => {
   return (
     <>
-      <div className="absolute m-auto w-[345px] h-[470px] rounded-[32px] bg-[#F5F5F5]">
+      {<div className="absolute m-auto w-[345px] h-[470px] rounded-[32px] bg-[#F5F5F5]">
         <AttributeBox
           text="هیزیبهتهبت"
           className="bg-[url(/teacherspage/learn.png)] bg-size-[18px_18px] font-[500] text-[#111111] text-2lg"
         />
-      </div>
+      </div>}
       <div className="w-[264px] h-[130px] bg-[#F5F5F5] drop-shadow-[5px_-0px_0px_rgba(155, 14, 225, 0.1)] p-[24px] rounded-[24px] cursor-pointer">
         <div>
           <img
