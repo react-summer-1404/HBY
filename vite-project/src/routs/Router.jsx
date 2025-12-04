@@ -5,6 +5,8 @@ import RegisterPage from "../screens/registerPage"
 import LayOut from '../LayOut/LayOut';
 import { Login } from '../screens/login/login';
 
+import TeachersPage from '../screens/TeachersPage';
+
 const Router= createBrowserRouter(
   [
     {
@@ -20,6 +22,10 @@ const Router= createBrowserRouter(
           path:'/register',
           element:<RegisterPage/>
         },
+        {
+          path:'/teachersPage',
+          element:<TeachersPage/>
+        }
       ]
     },
     {
