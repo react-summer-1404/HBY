@@ -1,6 +1,5 @@
 import React from "react";
 import RegisterButton from "./Register_button";
-
 const MainBox_step_1 = () => {
   return (
     <div className="w-[430px]  flex flex-col items-center">
@@ -29,6 +28,7 @@ const MainBox_step_1 = () => {
         </a>
       </p>
     </div>
+    
   );
 };
 
