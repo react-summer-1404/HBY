@@ -1,12 +1,29 @@
 import React from "react";
 import RegisterButton from "./Register_button";
-import { Formik, Form, Field } from "formik";
-const MainBox_step_1 = () => {
-  const onSubmit=()=>{
-
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import *  as yup from 'yup'
+import apiClient from "../../core/services/interceptor";
+const MainBox_step_1 = (values) => {
+  const validation=yup.object({
+    gmail:yup.string().required("بنویس").email("ایمیلٍ لامسب")
+  })
+  const postApi=async(data)=>{
+    const res=await apiClient.post("/Sign/SendVerifyMessage",data);
+    return res.data;
   }
+  const onSubmit = (values) => {
+    console.log(values.gmail);
+    postApi(values);
+  };
   return (
-    <Formik initialValues={{gmail:""}}>
+    <Formik
+      initialValues={{ gmail: "" }}
+      
+      onSubmit={(values) => {
+        onSubmit(values);
+      }}
+      validationSchema={validation}
+    >
       <Form className="w-[430px]  flex flex-col items-center">
         <p className="text-lg select-none">{"خوش امدید :)"}</p>
         <h3 className="text-xl font-bold mt-[4px] select-none">
@@ -15,10 +32,11 @@ const MainBox_step_1 = () => {
         <div className="relative w-1/1">
           <Field
             name="gmail"
-            type="text"
+            
             className="text-sm font-semibold rtl w-1/1 bg-[#4B4B4B14] select-none h-[48px] border-0 pl-[16px] pr-[40px] py-[4px] rounded-[8px]  mt-[32px]"
             placeholder="شماره تلفن همراه..."
           />
+          <ErrorMessage name="gmail" render={msg=><div className="py-3 mt-4 mb-4 pr-2 rounded-[8px] dark:bg-gray-800 bg-amber-100">{msg}</div>}/>
           <img
             src="/register/phone_black.png"
             className="h-[30px] w-[30px] absolute top-[36px] right-[5px] my-1 "
