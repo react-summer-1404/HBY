@@ -2,10 +2,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-9
+
 export default function CourseCard({
-  title = "عنوان دوره",
-  instructor = "استاد",
+  title,
+  instructor,
   students = 0,
   startsAt = "تاریخ",
   price = "رایگان",

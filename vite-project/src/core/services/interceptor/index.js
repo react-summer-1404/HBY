@@ -20,7 +20,7 @@ apiClient.interceptors.response.use(onSuccess, onError);
 
 apiClient.interceptors.request.use((opt) => {
   let token = localStorage.getItem("token");
-  token = JSON.parse(token);
+  // token = JSON.parse(token);
 
   if (token) opt.headers.Authorization = "Bearer " + token.token;
   return opt;
