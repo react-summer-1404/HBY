@@ -1,10 +1,7 @@
 // CourseCard.jsx
 import React from "react";
-<<<<<<< HEAD
 import { NavLink, useNavigate } from "react-router-dom";
-=======
-import { NavLink,useNavigate} from "react-router-dom";
->>>>>>> B/15/Dashboard
+
 
 //کپی از کارت برای سایز کوچکتر در صفحه کورس
 export default function CoursePageCard({
@@ -22,10 +19,7 @@ export default function CoursePageCard({
   const gotocoursdetails= () => {
     navigate("/courcesDetails/:id")
   }
-<<<<<<< HEAD
-=======
 
->>>>>>> B/15/Dashboard
   return (
     <div className="relative w-[268px] h-[384px] flex items-center justify-center ">
       {/* glow */}
