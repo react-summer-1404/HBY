@@ -7,13 +7,6 @@ import { useParams } from "react-router-dom";
 
 const CoursesDetails = () => {
   const { id } = useParams();
-
-  
-
-
-
-
-
   return (
     <div>
       {/* up */}

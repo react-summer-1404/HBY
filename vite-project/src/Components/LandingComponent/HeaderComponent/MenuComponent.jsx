@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 // import "tailwindcss";
 const MenuComponent = () => {
-   const navigate = useNavigate();
+  const navigate = useNavigate();
   
     const handleLoginClick = () => {
       navigate("/cource");
