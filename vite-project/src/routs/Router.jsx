@@ -1,7 +1,7 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Landing from "../screens/Landing/Landing";
-import RegisterPage from "../screens/registerPage";
+
 import LayOut from "../LayOut/LayOut";
 import Login from "../screens/login/login";
 import Loginnum from "../screens/login/loginnum";
@@ -10,7 +10,14 @@ import CoursesDetails from "../Components/CoursesDetails/CoursesDetails";
 import CoursePageCard2 from "../Components/LandingComponent/Slider/CourseCard/CourseCard2";
 import CoursesPage2 from "../Components/CoursesComponent/coursesPage2";
 import ScrollToTop from "../Components/Scrolltoup/ScrollToTop";
-// import { Login } from '../screens/login/login';
+import RegisterPage from "../screens/registerPage";
+import MainBox_step_1 from "../Components/register/MainBox_step_1";
+import MainBox_step_2 from "../Components/register/MainBox_step_2";
+import MainBox_step_3 from "../Components/register/MainBox_step_3";
+import ForgetPass from "../screens/ForgetPassPage";
+import ForgetPassBox_1 from "../Components/forgetPass/ForgetPassBox_1";
+import ForgetPassBox_2 from "../Components/forgetPass/ForgetPassBox_2";
+
 
 const Router = createBrowserRouter([
   {
@@ -30,11 +37,6 @@ const Router = createBrowserRouter([
         path: "/courcesDetails/:id",
         element: <CoursesDetails />,
       },
-
-      // {
-      //   path:'/cource2',
-      //   element:<CoursesPage2/>
-      // },
     ],
   },
   {
