@@ -79,9 +79,9 @@ const CardCoursesPage = () => {
                       <CoursePageCard2 title={item.title} cost={item.cost} courseId={item.courseId} />
                     </div>
                   ))
-                : currentData.map((course) => (
-                    <div className="mx-auto mb-5 lg:mx-0" key={course.id}>
-                      <CoursePageCard />
+                : courses?.courseFilterDtos?.map((item) => (
+                    <div className="mx-auto mb-5 lg:mx-0" key={item.id}>
+                      <CoursePageCard title={item.title} courseId={item.courseId}/>
                     </div>
                   ))}
             </div>

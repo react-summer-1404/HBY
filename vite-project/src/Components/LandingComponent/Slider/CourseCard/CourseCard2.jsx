@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { CiStar } from "react-icons/ci";
 
-export default function PreviewCourseCard() {
+export default function PreviewCourseCard({title}) {
   const [liked, setLiked] = useState(false);
 
   return (
@@ -13,7 +13,7 @@ export default function PreviewCourseCard() {
 
       {/*متن */}
       <div className="flex flex-col justify-between h-full w-[60%] pr-4">
-        <h2 className="text-[22px] font-extrabold text-black mb-3 dark:text-amber-50">ریکت جی اس</h2>
+        <h2 className="text-[22px] font-extrabold text-black mb-3 dark:text-amber-50">{title}</h2>
 
         <div className="flex items-center gap-2 text-[14px] text-gray-700 mb-2 dark:text-gray-400">
           <span>استاد پورمرادادی</span>

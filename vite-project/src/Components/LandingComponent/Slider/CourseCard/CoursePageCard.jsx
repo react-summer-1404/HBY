@@ -1,6 +1,6 @@
 // CourseCard.jsx
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink,useNavigate} from "react-router-dom";
 
 //کپی از کارت برای سایز کوچکتر در صفحه کورس
 export default function CoursePageCard({
@@ -13,6 +13,12 @@ export default function CoursePageCard({
   rating = 0,
   bgImage = null,
 }) {
+  const navigate = useNavigate();
+
+  const gotocoursdetails= () => {
+    navigate("/courcesDetails/:id")
+  }
+
   return (
     <div className="relative w-[268px] h-[384px] flex items-center justify-center ">
       {/* glow */}
@@ -39,7 +45,7 @@ export default function CoursePageCard({
           backgroundColor: "#0b0b0b",
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/60 to-black/30" />
+        <div className="absolute inset-0 from-black/85 via-black/60 to-black/30" />
 
         {/* like button */}
         <button
@@ -175,7 +181,8 @@ export default function CoursePageCard({
                   <div className="text-white text-lg font-extrabold">
                     {cost}
                   </div>
-                  <button className="px-4 py-2 rounded-full border border-white/30 bg-transparent text-white text-sm font-medium">
+                  <button className="px-4 py-2 rounded-full border border-white/30 bg-transparent text-white text-sm font-medium"
+                  onClick={gotocoursdetails}>
                     مشاهده دوره
                   </button>
                 </div>
