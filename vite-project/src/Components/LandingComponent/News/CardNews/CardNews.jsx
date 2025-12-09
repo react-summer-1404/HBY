@@ -12,15 +12,16 @@ import React from "react";
  * - bgImage (url)
  */
 export default function CardNews({
+  item
 //   title = "عنوان خبر",
 //   text = "توضیحات",
 //   instructor = "نویسنده",
-  rating = 5,
-  bgImage = "../../../../../public/news/n2.png",
+  // rating = 5,
+  // bgImage = "../../../../../public/news/n2.png",
 //   view = "بازدید"
 }) {
   return (
-    <div className="relative w-[340px] h-[450px] flex items-center justify-center my-20">
+    <div className="relative w-[340px] h-[450px] flex items-center justify-center my-5">
       {/* glow */}
      <div
         aria-hidden
@@ -39,7 +40,7 @@ export default function CardNews({
         className="relative z-10 w-full h-full rounded-[28px] overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.25)] 
                   transform transition-transform duration-300 hover:scale-105 hover:shadow-xl"
         style={{
-          backgroundImage: bgImage ? `url(${bgImage})` : undefined,
+          backgroundImage: item.bgImage ? `url(${item.bgImage})` : undefined,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundColor: "#0b0b0b",
@@ -85,7 +86,7 @@ export default function CardNews({
                 />
                 </svg>
             </div>
-            <span className="text-sm font-medium text-yellow-400">{rating}</span>
+            <span className="text-sm font-medium text-yellow-400">{item.rating}</span>
         </div>
 
         {/* bottom info */}
@@ -96,19 +97,19 @@ export default function CardNews({
             <div className="flex-1 text-right">
                     <h3 className="text-white text-[20px] font-extrabold leading-6">
                         
-                        ریکت جی اس چیست؟
+                   تیتر خبر :  {item.title} 
                     </h3>
 
                 <div className="mt-2 flex flex-wrap items-center gap-3 text-white/80 text-[13px]">
                 <div className="flex items-center justify-around flex-wrap gap-3">
                 {/* text */}
                 <div className="mt-3 mb-0 w-[286px] h-[44px]">
-                    <h1>ری اکت (React) یک کتابخانه جاوا اسکریپتی برای ساخت رابط کاربری بوده که ...</h1>
+                    <h1>  {item.shortDescription}</h1>
                 </div>
                   {/* tichar */}
                     <div className="flex items-center  w-full">
                     <img src="../../../../../public/news/Edit 2.svg" alt="" />
-                    <span className="">علی رضا باقری </span>
+                    <span className="">{item.author}</span>
                 </div>
                 </div>
 
@@ -116,10 +117,10 @@ export default function CardNews({
                  <div className="flex items-center justify-around gap-14">
                        <div className="w-auto h-[21px] flex gap-3 ">
                         <img src="../../../../../public/news/Vector.svg" alt="" />
-                        <h1>280 بازدید کننده</h1>
+                        <h1>{item.currentView} بازدید کننده</h1>
                     </div>
                 <div className="flex items-center  gap-2">
-                  <button className="px-4 py-2 left-5 rounded-full border border-white/30 bg-transparent text-white text-sm font-medium">
+                  <button className="px-4 py-2 left-5 rounded-full border border-white/30 bg-transparent text-white text-sm font-medium hover:bg-white/10 transition">
                     بیشتر بخوانید</button>
                 </div>
                  </div>

@@ -1,14 +1,10 @@
 import React from "react";
 
-/**
- * Props:
- * - name
- * - role
- * - img (url)
- */
-export default function CourseCard({ name = " استاد", role = "مدرس", img = null }) {
+// /**cart ostad bartar
+
+export default function CourseCard({ fullName , teacherId , pictureAddress }) {
   return (
-    <div className="relative w-[260px] sm:w-[300px] md:w-[340px] h-[340px] sm:h-[380px] md:h-[420px] flex items-center justify-center">
+    <div className="relative w-[260px] mb-5 sm:w-[300px] md:w-[340px] h-[340px] sm:h-[380px] md:h-[420px] flex items-center justify-center">
 
       <div
         aria-hidden
@@ -28,7 +24,7 @@ export default function CourseCard({ name = " استاد", role = "مدرس", im
         dir="ltr"
         className="relative z-10 w-full h-full rounded-[18px] overflow-hidden flex items-end"
         style={{
-          backgroundImage: img ? `url(${img})` : undefined,
+          backgroundImage: pictureAddress ? `url(${pictureAddress})` : undefined,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -38,8 +34,8 @@ export default function CourseCard({ name = " استاد", role = "مدرس", im
 
         <div className="relative z-20 w-full px-4 pb-6">
           <div className="text-right">
-            <div className="text-white text-lg  mr-8 sm:text-xl font-extrabold">{name}</div>
-            <div className="text-white/80 text-sm mb-8 mr-8 sm:text-sm mt-1">{role}</div>
+            <div className="text-white text-lg  mr-8 sm:text-xl font-extrabold">{fullName}</div>
+            <div className="text-white/80 text-sm mb-8 mr-8 sm:text-sm mt-1">{teacherId}</div>
           </div>
         </div>
       </div>

@@ -1,16 +1,30 @@
-// CourseCard.jsx
+// کارت دوره صفحه اول دوره برتر
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import EfectCartCoursePage from "./EfectCartCoursePage";
 
 
 export default function CourseCard({
+  id,
   title,
-  instructor,
-  students = 0,
-  startsAt = "تاریخ",
-  price = "رایگان",
-  rating = 0,
-  bgImage = null,
+  describe,
+  isDelete,
+  active,
+  miniDescribe,
+  googleTitle,
+  imageAddress,
+  priceCourse,
+  cost,
+  startTime,
+  endTime,
+  tumbImageAddress,
+  teacherId,
+  courseLvlId,
+  lastUpdate,
+  refetch,
+  statusId,
+  capacity,
+  courseRate
 }) {
   const navigate = useNavigate();
 
@@ -18,17 +32,10 @@ export default function CourseCard({
     navigate("/courcesDetails/:id")
   }
   return (
-    <div className="relative w-[340px] h-[450px] flex items-center justify-center my-20">
-      {/* glow */}
-      <div
-        aria-hidden
-        className="absolute inset-0 rounded-[36px] blur-[18px] pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse at center, rgba(165,120,255,0.28) 0%, rgba(165,120,255,0.12) 25%, transparent 40%)",
-          transform: "translateY(6px)",
-        }}
-      />
+    <div className="relative w-[340px] h-[450px] flex items-center justify-center mx-auto my-20">
+      {/* glow  */}
+      {/* حرکت اسلاید */}
+      <EfectCartCoursePage/>
 
       <div className="absolute inset-0 m-3 rounded-[34px] bg-white/90 pointer-events-none" />
 
@@ -38,13 +45,13 @@ export default function CourseCard({
         className="relative z-10 w-full h-full rounded-[28px] overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.25)] 
                   transform transition-transform duration-300 hover:scale-105 hover:shadow-xl"
         style={{
-          backgroundImage: bgImage ? `url(${bgImage})` : undefined,
+          backgroundImage: imageAddress ? `url(${tumbImageAddress})` : undefined,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundColor: "#0b0b0b",
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/60 to-black/30" />
+        <div className="absolute inset-0 from-black/85 via-black/60 to-black/30" />
 
         {/* like button */}
         <button
@@ -67,7 +74,7 @@ export default function CourseCard({
           </svg>
         </button>
 
-        {/* rating badge */}
+        {/* courseRate badge */}
         <div className="absolute bottom-36 left-4 z-20 flex items-center gap-2">
           <div className="w-8 h-8 rounded-md flex items-center justify-center bg-black/40 border border-yellow-400">
             {/* star */}
@@ -84,7 +91,7 @@ export default function CourseCard({
               />
             </svg>
           </div>
-          <span className="text-sm font-medium text-yellow-400">{rating}</span>
+          <span className="text-sm font-medium text-yellow-400">{courseRate}</span>
         </div>
 
         {/* bottom info */}
@@ -99,7 +106,7 @@ export default function CourseCard({
 
               <div className="mt-2 flex flex-wrap items-center gap-3 text-white/80 text-[13px]">
                 <div className="flex items-center justify-around flex-wrap gap-20">
-                  {/* tichar */}
+                  {/* teacherId */}
                   <div className="flex items-center gap-2 w-32">
                      <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -122,7 +129,7 @@ export default function CourseCard({
                         strokeLinejoin="round"
                       />
                     </svg>
-                    <span className="">{instructor}</span>
+                    <span className="">{teacherId}</span>
                   </div>
                   {/* /student */}
                   <div className="flex items-end gap-2 ">
@@ -142,9 +149,8 @@ export default function CourseCard({
                     />
                   </svg>
                     <span className="mt-2 flex flex-wrap items-center gap-3 text-white/80 text-[13px]">
-                      {students} دانشجو
+                      {statusId} دانشجو
                     </span>
-                   
                   </div>
                 </div>
 
@@ -175,15 +181,15 @@ export default function CourseCard({
                       strokeLinejoin="round"
                     />
                   </svg>
-                  <span> {startsAt} (شروع)</span>
+                  <span> {startTime} (شروع)</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="text-white text-lg font-extrabold">
-                    {price}
+                    {priceCourse}تومان
                   </div>
                   <button className="px-4 py-2 rounded-full border
-                   border-white/30 bg-transparent text-white text-sm font-medium"
-                   onClick={gotocoursdetails}>
+                  border-white/30 bg-transparent text-white text-sm font-medium"
+                  onClick={gotocoursdetails}>
                     مشاهده دوره
                   </button>
                 </div>
