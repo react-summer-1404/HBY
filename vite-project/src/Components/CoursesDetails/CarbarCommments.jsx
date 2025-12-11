@@ -3,7 +3,8 @@ import { AiOutlineLike } from "react-icons/ai";
 import { AiOutlineDislike } from "react-icons/ai";
 import { HiArrowUturnRight } from "react-icons/hi2";
 
-const CarbarCommments = () => {
+const CarbarCommments = ({comment}) => {
+  
   return (
     <div>
       <div className='w-[1000px] m-10 h-[514px] rounded-3xl shadow-2xl p-5 shadow-gray-400'>

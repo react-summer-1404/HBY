@@ -3,44 +3,41 @@ import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import EfectCartCoursePage from "./EfectCartCoursePage";
 
-const CoursePageCard=(
-  {
-    id,
-    title,
-    describe,
-    isDelete,
-    active,
-    miniDescribe,
-    googleTitle,
-    imageAddress,
-    priceCourse,
-    cost,
-    startTime,
-    endTime,
-    tumbImageAddress,
-    teacherName,
-    courseLvlId,
-    lastUpdate,
-    refetch,
-    statusId,
-    capacity,
-    courseRate,
-    likeCount
-}
-) => {
-   const [liked, setLiked] = useState(false);
- 
+const CoursePageCard = ({
+  id,
+  title,
+  describe,
+  isDelete,
+  active,
+  miniDescribe,
+  googleTitle,
+  imageAddress,
+  priceCourse,
+  cost,
+  startTime,
+  endTime,
+  tumbImageAddress,
+  teacherName,
+  courseLvlId,
+  lastUpdate,
+  refetch,
+  statusId,
+  capacity,
+  courseRate,
+  likeCount,
+}) => {
+  const [liked, setLiked] = useState(false);
+
   const navigate = useNavigate();
 
-  const gotocoursdetails= () => {
-    navigate("/courcesDetails/:id")
-  }
+  const gotocoursdetails = () => {
+    navigate("/courcesDetails/:id");
+  };
 
-  
   return (
     <div className="relative w-[268px] h-[384px] flex items-center justify-center ">
       {/* glow */}
-      <EfectCartCoursePage/>
+      <EfectCartCoursePage />
 
       <div className="absolute inset-0 m-3 rounded-[34px] bg-white/90 pointer-events-none" />
 
@@ -49,7 +46,9 @@ const CoursePageCard=(
         className="relative z-10 w-full h-full rounded-[28px] overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.25)] 
                   transform transition-transform duration-300 hover:scale-105 hover:shadow-xl"
         style={{
-          backgroundImage: imageAddress ? `url(${tumbImageAddress})` : undefined,
+          backgroundImage: imageAddress
+            ? `url(${tumbImageAddress})`
+            : undefined,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundColor: "#0b0b0b",
@@ -67,17 +66,22 @@ const CoursePageCard=(
             ${liked ? " text-white scale-125" : "bg-white text-white scale-100"}
           `}
         >
-          {liked ? likeCount: "🤍"}
+          {liked ? likeCount : "🤍"}
         </button>
 
         {/* rating badge */}
         <div className="absolute bottom-36 p-5 z-20 justify-around flex items-center gap-20">
-        <NavLink to={`/courcesDetails/${id}`} className="text-white text-[20px] font-extrabold leading-6">
-                {title}
-              </NavLink>
+          <NavLink
+            to={`/courcesDetails/${id}`}
+            className="text-white text-[20px] font-extrabold leading-6"
+          >
+            {title}
+          </NavLink>
           <div className="w-8 h-8 rounded-md flex items-center justify-center bg-black/40 border border-yellow-400">
             {/* star */}
-            <span className="text-sm font-medium text-yellow-400">{courseRate}</span>
+            <span className="text-sm font-medium text-yellow-400">
+              {courseRate}
+            </span>
 
             <svg
               width="14"
@@ -100,60 +104,57 @@ const CoursePageCard=(
 
           <div className="flex items-center justify-between gap-4">
             <div className="flex-1 text-right">
-              
-
-                <div className="flex items-center flex-wrap break-normal text-amber-50 justify-around gap-3">
-                  {/* tichar */}
-                  <div className="flex items-center flex-wrap gap-2 w-32">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="w-4 h-4"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                    >
-                      <path
-                        d="M12 14l9-5-9-5-9 5 9 5z"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M12 14v7"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                    <span className=""> {teacherName} </span>
-                  </div>
-                  {/* /student */}
-                  <div className="flex items-end gap-2 flex-wrap">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="w-4 h-4"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                    >
-                      <path
-                        d="M16 11c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM8 11c1.657 0 3-1.343 3-3S9.657 5 8 5 5 6.343 5 8s1.343 3 3 3zM12 14c-4 0-7 2-7 4v1h14v-1c0-2-3-4-7-4z"
-                        stroke="currentColor"
-                        strokeWidth="1.0"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        fill="none"
-                      />
-                    </svg>
-                    <span className="mt-2 flex flex-wrap items-center gap-3 text-white/80 text-[13px]">
-                        {statusId} دانشجو
-                    </span>
-                  </div>
+              <div className="flex items-center flex-wrap break-normal text-amber-50 justify-around gap-3">
+                {/* tichar */}
+                <div className="flex items-center flex-wrap gap-2 w-32">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-4 h-4"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <path
+                      d="M12 14l9-5-9-5-9 5 9 5z"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M12 14v7"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <span className=""> {teacherName} </span>
                 </div>
+                {/* /student */}
+                <div className="flex items-end gap-2 flex-wrap">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-4 h-4"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <path
+                      d="M16 11c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM8 11c1.657 0 3-1.343 3-3S9.657 5 8 5 5 6.343 5 8s1.343 3 3 3zM12 14c-4 0-7 2-7 4v1h14v-1c0-2-3-4-7-4z"
+                      stroke="currentColor"
+                      strokeWidth="1.0"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      fill="none"
+                    />
+                  </svg>
+                  <span className="mt-2 flex flex-wrap items-center gap-3 text-white/80 text-[13px]">
+                    {statusId} دانشجو
+                  </span>
+                </div>
+              </div>
 
-                {/* date */}
-                <div className="mt-2 flex flex-wrap items-center gap-3 text-white/80 text-[13px]">
-
+              {/* date */}
+              <div className="mt-2 flex flex-wrap items-center gap-3 text-white/80 text-[13px]">
                 <div className="flex items-center gap-2 ">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -181,14 +182,16 @@ const CoursePageCard=(
                   </svg>
                   <span> {startTime} (شروع)</span>
                 </div>
-                <div className="flex items-center gap-3 w-auto" >
+                <div className="flex items-center gap-3 w-auto">
                   <div className="text-white w-auto text-lg break-normal font-extrabold">
                     {priceCourse} تومان
                   </div>
-                  <button className="px-4  w-auto py-2 break-normal rounded-full border border-white/30 bg-transparent text-white text-sm font-medium"
-                  onClick={gotocoursdetails}>
+                  <NavLink to={`/courcesDetails/${id}`}
+                    className="px-4  w-auto py-2 break-normal rounded-full border border-white/30 bg-transparent text-white text-sm font-medium"
+                 
+                  >
                     مشاهده دوره
-                  </button>
+                  </NavLink>
                 </div>
               </div>
             </div>
@@ -197,5 +200,5 @@ const CoursePageCard=(
       </div>
     </div>
   );
-}
-export default CoursePageCard
+};
+export default CoursePageCard;

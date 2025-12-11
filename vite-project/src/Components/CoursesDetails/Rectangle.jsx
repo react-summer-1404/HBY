@@ -1,14 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CarbarCommments from "./CarbarCommments";
+import { useParams } from "react-router-dom";
+import apiClient from "../../core/services/interceptor";
 
-const Rectangle = () => {
+
+const Rectangle = ({item}) => {
+
+  const { id } = useParams();
+
+  // hi api
+  const [comment, setComment] = useState([]);
+
+  const getComment = async () => {
+    try {
+      const res = await apiClient.get(`/Course/GetCourseCommnets=${id}`);
+
+      setComment(res?.data);
+    } catch (err) {
+      console.log(err,";;;;;;;;;;;;;;;;")
+    }
+  };
+  useEffect(() => {
+    getComment();
+  }, []);
+
+  console.log(
+  "ن",comment
+)
+
   return (
     <div className="shadow-2xl rounded-2xl shadow-gray-500 mt-3 h-[980px] p-10">
       <p className="text-3xl text-fuchsia-700 font-bold dark:text-fuchsia-400">
         توضیحات دوره{" "}
       </p>
       <p className="font-bold  text-gray-600 mt-5 w-[1000px] h-[244px] mr-10 dark:text-gray-400">
-        قبل از آموزش ری اکت ReactJS ابتدای کار به شما بگیم که تکنولوژی ری اکت
+        {/* قبل از آموزش ری اکت ReactJS ابتدای کار به شما بگیم که تکنولوژی ری اکت
         برگ برنده برنامه نویسان در دنیای امروز هست اصلا اغراق نکردیم. یه غول به
         تمام معنا و دنیایی بی انتها از پروژه هایی که میشه با اون نوشت، اون هم
         خیلی سریع و راحت! تکنولوژی که دنیای وب رو دگرگون کرد و دستپخت شرکت
@@ -20,7 +46,8 @@ const Rectangle = () => {
         کرده! خلاصه به شما تبریک میگیم که خیلی دقیق مطالعه کردید و به این نتیجه
         رسیدید که الان بهترین زمان برای یادگیری ری اکت هست. پس از الان با تمام
         اطمینان خیالتون رو راحت می کنیم : شما با دوره آموزش ری اکت سبزلرن، نه
-        تنها به این تکنولوژی ....
+        تنها به این تکنولوژی .... */}
+        {item.courseStatusName}
       </p>
       <div className="flex">
         <p className="text-3xl text-fuchsia-700 font-bold dark:text-fuchsia-400">
@@ -31,7 +58,7 @@ const Rectangle = () => {
           <p className="mt-0.5">نظر شما</p>
         </div>
       </div>
-      <CarbarCommments />
+      <CarbarCommments comment={comment} />
     </div>
   );
 };
