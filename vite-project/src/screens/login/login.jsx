@@ -27,7 +27,7 @@ export const Login = () => {
       const res = await apiClient.post(`/Sign/Login`, values);
       toast.success(res.data.message);
       navigate('/')
-      setData(res.data.token)
+      setData("token",res.data.token)
     } catch (error) {}
   };
 
