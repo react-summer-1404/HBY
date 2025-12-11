@@ -9,6 +9,8 @@ import CoursesPage from '../Components/CoursesComponent/CoursesPage';
 import CoursesDetails from '../Components/CoursesDetails/CoursesDetails';
 import CoursePageCard2 from '../Components/LandingComponent/Slider/CourseCard/CourseCard2';
 import CoursesPage2 from '../Components/CoursesComponent/coursesPage2';
+import NewsPage from '../Components/NewsComponent/NewsPage';
+
 // import { Login } from '../screens/login/login';
 
 const Router= createBrowserRouter(
@@ -33,7 +35,11 @@ const Router= createBrowserRouter(
         {
           path:'/courcesDetails/:id',
           element:<CoursesDetails/>
-        }
+        },
+        {
+          path:'/NewsPage',
+          element:<NewsPage/>
+        },
 
         // {
         //   path:'/cource2',
