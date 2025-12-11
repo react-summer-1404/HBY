@@ -1,41 +1,62 @@
 // SwiperComponent.jsx
+
+
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay, EffectCoverflow } from  "swiper/modules";
+import { Navigation, Autoplay, EffectCoverflow } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-coverflow";
 
-function SwiperComponent({ slides }) {
+import CourseCard from "../CourseCard/CourseCard";
+
+const SwiperComponent = ({ courses = [] }) => {
+  if (!Array.isArray(courses) || courses.length === 0) return null;
+
+  const shouldLoop = courses.length > 3;
+
   return (
     <Swiper
       modules={[Navigation, Autoplay, EffectCoverflow]}
-      spaceBetween={30}
-      loop={true}
+      loop={shouldLoop}
       navigation
       autoplay={{ delay: 3000, disableOnInteraction: false }}
-      direction="horizontal"
       effect="coverflow"
       centeredSlides={true}
-      coverflowEffect={{
-        rotate: 0,
-        stretch: 0,
-        depth: 100,
-        modifier: 1,
-        slideShadows: false,
-      }}
+      spaceBetween={30}
       breakpoints={{
         0: { slidesPerView: 1 },
         640: { slidesPerView: 2 },
-        1024: { slidesPerView: 3 },
+        1024: { slidesPerView: 4},
       }}
     >
-      {slides.map((slide, index) => (
+     
+      {courses.map((item, index) => (
         <SwiperSlide key={index}>
-          <div className="transition-transform duration-300 hidden md:block">{slide}</div>
+          <CourseCard
+            id={item.courseId}
+            title={item.title}
+            describe={item.describe}
+            isDelete={item.isDelete}
+            active={item.active}
+            miniDescribe={item.miniDescribe}
+            googleTitle={item.googleTitle}
+            imageAddress={item.imageAddress}
+            priceCourse={item.cost}
+            cost={item.levelName}
+            startTime={item.startTime}
+            endTime={item.endTime}
+            tumbImageAddress={item.tumbImageAddress}
+            teacherId={item.teacherId}
+            courseLvlId={item.courseLvlId}
+            lastUpdate={item.lastUpdate}
+            statusId={item.statusId}
+            capacity={item.capacity}
+            courseRate={item.count}
+          />
         </SwiperSlide>
       ))}
     </Swiper>
   );
-}
+};
 
 export default SwiperComponent;

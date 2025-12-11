@@ -1,10 +1,10 @@
 // کارت دوره صفحه اول دوره برتر
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import EfectCartCoursePage from "./EfectCartCoursePage";
+import EfectCartNewsCard from "./EfectCartNewsPage";
 
 
-export default function CourseCard({
+export default function NewsCard({
   id,
   title,
   describe,
@@ -108,7 +108,7 @@ export default function CourseCard({
                 <div className="flex items-center justify-around flex-wrap gap-20">
                   {/* teacherId */}
                   <div className="flex items-center gap-2 w-32">
-                     <svg
+                    <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="w-4 h-4"
                       viewBox="0 0 24 24"

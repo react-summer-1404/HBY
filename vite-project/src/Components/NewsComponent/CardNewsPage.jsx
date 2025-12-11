@@ -1,14 +1,14 @@
 // page 2.courses
 import React, { useState, useEffect } from "react";
-import CoursePageCard from "../LandingComponent/Slider/CourseCard/CoursePageCard";
-import CoursePageCard2 from "../LandingComponent/Slider/CourseCard/CourseCard2";
+import NewsPageCard from "../LandingComponent/News/NewsCard/NewsPageCard";
+import NewsPageCard2 from "../LandingComponent/News/NewsCard/NewsPageCard";
 import { Pagination } from "antd";
 import "antd/dist/reset.css";
 import FilterCourses from "../common/FilterCourses";
 import HederDore from "../common/hederDore";
 import apiClient from "../../core/services/interceptor";
 
-const CardCoursesPage = () => {
+const CardNewsPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(9);
   const [isList, setIsList] = useState(false);
@@ -79,7 +79,7 @@ const CardCoursesPage = () => {
             {isList
               ? courses.map((item) => (
                   <div key={item.courseId} className="mx-auto mb-5 lg:mx-0">
-                    <CoursePageCard2
+                    <NewsPageCard2
                       title={item.title}
                       priceCourse={item.cost}
                       courseId={item.courseId}
@@ -94,7 +94,7 @@ const CardCoursesPage = () => {
                 ))
               : courses.map((item) => (
                   <div key={item.courseId} className="mx-auto mb-5 lg:mx-0">
-                    <CoursePageCard
+                    <NewsPageCard
                       id={item.courseId}
                       title={item.title}
                       describe={item.describe}
@@ -140,4 +140,4 @@ const CardCoursesPage = () => {
   );
 };
 
-export default CardCoursesPage;
+export default CardNewsPage;

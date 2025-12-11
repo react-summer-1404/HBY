@@ -1,18 +1,8 @@
-// کارت حالت افقی صفحه کورس  در نمایش دوم فیلتر
 import React, { useState } from "react";
 import { CiStar } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
 
-export default function CourseCard2(
-  {
-  priceCourse,
-  title,statusId,
-  teacherName,
-  startTime,
-  imageAddress,
-  tumbImageAddress,
-  likeCount
-}) {
+export default function NewsCard2({title}) {
   const [liked, setLiked] = useState(false);
   
   const navigate = useNavigate();
@@ -22,30 +12,29 @@ export default function CourseCard2(
 
   return (
     <div
-      className="md:w-[1100px] max-w-[1200px] h-[260px] shadow shadow-gray-500 mb-7 bg-white w-[420px] rounded-3xl dark:bg-gray-900
-                flex flex-row-reverse justify-between items-center  p-6"
+      className="w-[1100px] max-w-[1200px] h-[260px] shadow shadow-gray-500 mb-7 bg-white rounded-3xl dark:bg-gray-900
+                flex flex-row-reverse justify-between items-center p-6"
       dir="rtl"
     >
 
       {/*متن */}
       <div className="flex flex-col justify-between h-full w-[60%] pr-4">
-        <h2 className="text-[22px] font-extrabold text-black mb-3 dark:text-amber-50">{title}  </h2>
+        <h2 className="text-[22px] font-extrabold text-black mb-3 dark:text-amber-50">{title}</h2>
 
-        {/* <div className="flex items-center gap-2 text-[14px] text-gray-700 mb-2 dark:text-gray-400">
-        </div> */}
+        <div className="flex items-center gap-2 text-[14px] text-gray-700 mb-2 dark:text-gray-400">
+          <span>استاد پورمرادادی</span>
+        </div>
 
-        <div className="flex  gap-15 text-[13px] text-gray-700">
-          <span>{teacherName}استاد </span>
-          <div className="hidden md:flex items-center gap-2 dark:text-gray-400">{startTime} (شروع)</div>
-          <div className="flex items-center gap-2 dark:text-gray-400">{statusId} دانشجو</div>
+        <div className="flex flex-col gap-1 text-[13px] text-gray-700">
+          <div className="flex items-center gap-2 dark:text-gray-400">20 دانشجو</div>
+          <div className="flex items-center gap-2 dark:text-gray-400">1404/02/14 (شروع)</div>
         </div>
 
         <div className="flex items-center justify-between mt-4">
           <div className="text-purple-600 text-xl font-extrabold dark:text-fuchsia-400">
-            {priceCourse} تومان
+            3,500,000 تومان
           </div>
-          <button className="px-5 py-2 border border-purple-500 text-purple-600 rounded-full dark:text-fuchsia-400 hover:bg-purple-300 transition
-          style={{ color: '[#9B0EE133]' }}"
+          <button className="px-5 py-2 border border-purple-500 text-purple-600 rounded-full dark:text-fuchsia-400 hover:bg-purple-300 transition"
           onClick={gotocourseditails}>
             مشاهده دوره
           </button>
@@ -56,7 +45,7 @@ export default function CourseCard2(
       <div
         className="relative w-[40%] h-full rounded-2xl overflow-hidden shadow-md"
         style={{
-          backgroundImage: imageAddress ? `url(${tumbImageAddress})` : undefined,
+          backgroundImage: `url('/public/slider/Img.svg')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -81,7 +70,7 @@ export default function CourseCard2(
             ${liked ? " text-white scale-125" : "bg-black/40 text-white scale-100"}
           `}
         >
-          {liked ? likeCount: "🤍"}
+          {liked ? "❤️" : "🤍"}
         </button>
       </div>
     </div>

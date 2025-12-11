@@ -1,4 +1,4 @@
 import React from 'react';
 import { Rate } from 'antd';
-const StarCourceDetails = () => <Rate allowHalf defaultValue={2.5} />;
+const StarCourceDetails = ({item}) => <Rate allowHalf defaultValue={item.currentRate} />;
 export default StarCourceDetails;

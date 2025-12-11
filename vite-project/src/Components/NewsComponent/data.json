@@ -1,0 +1,52 @@
+[
+  {
+    "id":"1",
+    "title" : "عنوان خبر ",
+    "bgImage" : "https://www.tonynguyen.me/assets/react-course.webp"
+  },
+  {
+    "id":"2",
+    "title" : "عنوان خبر ",
+    "bgImage" : "https://www.tonynguyen.me/assets/react-course.webp"
+  },
+  {
+    "id":"3",
+    "title" : "عنوان خبر ",
+    "bgImage" : "https://www.tonynguyen.me/assets/react-course.webp"
+  },
+  {
+    "id":"4",
+    "title" : "عنوان خبر ",
+    "bgImage" : "https://www.tonynguyen.me/assets/react-course.webp"
+  },
+  {
+    "id":"5",
+    "title" : "عنوان خبر ",
+    "bgImage" : "https://www.tonynguyen.me/assets/react-course.webp"
+  },
+  {
+    "id":"6",
+    "title" : "عنوان خبر ",
+    "bgImage" : "https://www.tonynguyen.me/assets/react-course.webp"
+  },
+  {
+    "id":"7",
+    "title" : "عنوان خبر ",
+    "bgImage" : "https://www.tonynguyen.me/assets/react-course.webp"
+  },
+  {
+    "id":"8",
+    "title" : "عنوان خبر ",
+    "bgImage" : "https://www.tonynguyen.me/assets/react-course.webp"
+  },
+  {
+    "id":"9",
+    "title" : "عنوان خبر ",
+    "bgImage" : "https://www.tonynguyen.me/assets/react-course.webp"
+  },
+  {
+    "id":"10",
+    "title" : "عنوان خبر ",
+    "bgImage" : "https://www.tonynguyen.me/assets/react-course.webp"
+  }
+]

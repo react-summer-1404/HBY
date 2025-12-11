@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 
 export default function SwiperComponent({ slides = [], slideWidth = 340 }) {
   return (
-    <div className="hidden w-full lg:flex justify-center">
+    <div className="hidden mx-auto  md:flex md:justify-center md:mx-auto w-full">
       <Swiper
         modules={[EffectCoverflow, Navigation, Pagination]}
         effect={"coverflow"}
