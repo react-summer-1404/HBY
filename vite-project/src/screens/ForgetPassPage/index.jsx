@@ -7,9 +7,7 @@ import { Outlet } from "react-router-dom";
 import mediaQuery from "../../core/utils/mediaQuery";
 import image from "../../assets/forgetPassImg.png";
 const ForgetPass = () => {
-  useEffect(() => {
-      document.documentElement.classList.add("dark");
-    }, []);
+  
   return (
     <>
       <div className="-z-2 bg-[#F5F5F5] dark:bg-[#2D2D2D] w-full h-full absolute top-0 bottom-0 overflow-hidden">

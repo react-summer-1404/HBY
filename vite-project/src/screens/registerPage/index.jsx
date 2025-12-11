@@ -6,9 +6,7 @@ import MainBox_step_1 from "../../components/register/MainBox_step_1";
 import { Outlet } from "react-router-dom";
 import mediaQuery from "../../core/utils/mediaQuery";
 const RegisterPage = () => {
-  useEffect(() => {
-    document.documentElement.classList.add("dark");
-  }, []);
+ 
   return (
     <>
       <div className="-z-2 bg-[#9B0EE1] w-full h-full absolute top-0 bottom-0 dark:bg-[#2D2D2D]"></div>
