@@ -1,46 +1,37 @@
-//کپی از کارت دوره صفحه اول برای سایز کوچکتر در  صفحه کورس حالت پنجره ای فیلتر
-import React, { useEffect, useState } from "react";
+// CourseCard.jsx
+import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import EfectCartCoursePage from "./EfectCartCoursePage";
 
-const CoursePageCard=(
-  {
-    id,
-    title,
-    describe,
-    isDelete,
-    active,
-    miniDescribe,
-    googleTitle,
-    imageAddress,
-    priceCourse,
-    cost,
-    startTime,
-    endTime,
-    tumbImageAddress,
-    teacherName,
-    courseLvlId,
-    lastUpdate,
-    refetch,
-    statusId,
-    capacity,
-    courseRate,
-    likeCount
-}
-) => {
-   const [liked, setLiked] = useState(false);
- 
+
+//کپی از کارت برای سایز کوچکتر در صفحه کورس
+export default function NewsPageCard({
+  title,
+  cost,courseId,
+  instructor = "استاد",
+  students = 0,
+  startsAt = "تاریخ",
+  // price = "رایگان",
+  rating = 0,
+  bgImage = null,
+}) {
   const navigate = useNavigate();
 
   const gotocoursdetails= () => {
     navigate("/courcesDetails/:id")
   }
 
-  
   return (
     <div className="relative w-[268px] h-[384px] flex items-center justify-center ">
       {/* glow */}
-      <EfectCartCoursePage/>
+      <div
+        aria-hidden
+        className="absolute inset-0 rounded-[36px] blur-[18px] pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, rgba(165,120,255,0.28) 0%, rgba(165,120,255,0.12) 25%, transparent 40%)",
+          transform: "translateY(6px)",
+        }}
+      />
 
       <div className="absolute inset-0 m-3 rounded-[34px] bg-white/90 pointer-events-none" />
 
@@ -49,36 +40,39 @@ const CoursePageCard=(
         className="relative z-10 w-full h-full rounded-[28px] overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.25)] 
                   transform transition-transform duration-300 hover:scale-105 hover:shadow-xl"
         style={{
-          backgroundImage: imageAddress ? `url(${tumbImageAddress})` : undefined,
+          backgroundImage: bgImage ? `url(${bgImage})` : undefined,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundColor: "#0b0b0b",
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/60 to-black/30" />
+        <div className="absolute inset-0 from-black/85 via-black/60 to-black/30" />
 
         {/* like button */}
-        {/*  لایک  */}
         <button
-          onClick={() => setLiked(!liked)}
-          className={`
-            absolute top-3 left-3 z-20 p-2 rounded-full backdrop-blur-sm
-            transition-all duration-300
-            ${liked ? " text-white scale-125" : "bg-white text-white scale-100"}
-          `}
+          aria-label="like"
+          className="ml-60 absolute top-4 left-4 z-20 w-10 h-10 flex items-center justify-center rounded-full bg-black/40 border border-white/10 backdrop-blur-sm"
         >
-          {liked ? likeCount: "🤍"}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-5 h-5 text-white/90"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={1.5}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 20.364l-7.682-7.682a4.5 4.5 0 010-6.364z"
+            />
+          </svg>
         </button>
 
         {/* rating badge */}
-        <div className="absolute bottom-36 p-5 z-20 justify-around flex items-center gap-20">
-        <NavLink to={`/courcesDetails/${id}`} className="text-white text-[20px] font-extrabold leading-6">
-                {title}
-              </NavLink>
+        <div className="absolute bottom-36 left-4 z-20 flex items-center gap-2">
           <div className="w-8 h-8 rounded-md flex items-center justify-center bg-black/40 border border-yellow-400">
             {/* star */}
-            <span className="text-sm font-medium text-yellow-400">{courseRate}</span>
-
             <svg
               width="14"
               height="14"
@@ -92,6 +86,7 @@ const CoursePageCard=(
               />
             </svg>
           </div>
+          <span className="text-sm font-medium text-yellow-400">{rating}</span>
         </div>
 
         {/* bottom info */}
@@ -100,11 +95,14 @@ const CoursePageCard=(
 
           <div className="flex items-center justify-between gap-4">
             <div className="flex-1 text-right">
-              
+              <NavLink to={`/courcesDetails/${courseId}`} className="text-white text-[20px] font-extrabold leading-6">
+                {title}
+              </NavLink>
 
-                <div className="flex items-center flex-wrap break-normal text-amber-50 justify-around gap-3">
+              <div className="mt-2 flex flex-wrap items-center gap-3 text-white/80 text-[13px]">
+                <div className="flex items-center justify-around flex-wrap gap-20">
                   {/* tichar */}
-                  <div className="flex items-center flex-wrap gap-2 w-32">
+                  <div className="flex items-center gap-2 w-32">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="w-4 h-4"
@@ -126,10 +124,10 @@ const CoursePageCard=(
                         strokeLinejoin="round"
                       />
                     </svg>
-                    <span className=""> {teacherName} </span>
+                    <span className="">{instructor}</span>
                   </div>
                   {/* /student */}
-                  <div className="flex items-end gap-2 flex-wrap">
+                  <div className="flex items-end gap-2 ">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="w-4 h-4"
@@ -146,13 +144,12 @@ const CoursePageCard=(
                       />
                     </svg>
                     <span className="mt-2 flex flex-wrap items-center gap-3 text-white/80 text-[13px]">
-                        {statusId} دانشجو
+                      {students} دانشجو
                     </span>
                   </div>
                 </div>
 
                 {/* date */}
-                <div className="mt-2 flex flex-wrap items-center gap-3 text-white/80 text-[13px]">
 
                 <div className="flex items-center gap-2 ">
                   <svg
@@ -179,13 +176,13 @@ const CoursePageCard=(
                       strokeLinejoin="round"
                     />
                   </svg>
-                  <span> {startTime} (شروع)</span>
+                  <span> {startsAt} (شروع)</span>
                 </div>
-                <div className="flex items-center gap-3 w-auto" >
-                  <div className="text-white w-auto text-lg break-normal font-extrabold">
-                    {priceCourse} تومان
+                <div className="flex items-center gap-2">
+                  <div className="text-white text-lg font-extrabold">
+                    {cost}
                   </div>
-                  <button className="px-4  w-auto py-2 break-normal rounded-full border border-white/30 bg-transparent text-white text-sm font-medium"
+                  <button className="px-4 py-2 rounded-full border border-white/30 bg-transparent text-white text-sm font-medium"
                   onClick={gotocoursdetails}>
                     مشاهده دوره
                   </button>
@@ -198,4 +195,3 @@ const CoursePageCard=(
     </div>
   );
 }
-export default CoursePageCard

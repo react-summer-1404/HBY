@@ -1,48 +1,44 @@
-//کپی از کارت دوره صفحه اول برای سایز کوچکتر در  صفحه کورس حالت پنجره ای فیلتر
-import React, { useEffect, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
-import EfectCartCoursePage from "./EfectCartCoursePage";
+// کارت دوره صفحه اول دوره برتر
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import EfectCartNewsCard from "./EfectCartNewsPage";
 
-const CoursePageCard=(
-  {
-    id,
-    title,
-    describe,
-    isDelete,
-    active,
-    miniDescribe,
-    googleTitle,
-    imageAddress,
-    priceCourse,
-    cost,
-    startTime,
-    endTime,
-    tumbImageAddress,
-    teacherName,
-    courseLvlId,
-    lastUpdate,
-    refetch,
-    statusId,
-    capacity,
-    courseRate,
-    likeCount
-}
-) => {
-   const [liked, setLiked] = useState(false);
- 
+
+export default function NewsCard({
+  id,
+  title,
+  describe,
+  isDelete,
+  active,
+  miniDescribe,
+  googleTitle,
+  imageAddress,
+  priceCourse,
+  cost,
+  startTime,
+  endTime,
+  tumbImageAddress,
+  teacherId,
+  courseLvlId,
+  lastUpdate,
+  refetch,
+  statusId,
+  capacity,
+  courseRate
+}) {
   const navigate = useNavigate();
 
   const gotocoursdetails= () => {
     navigate("/courcesDetails/:id")
   }
-
-  
   return (
-    <div className="relative w-[268px] h-[384px] flex items-center justify-center ">
-      {/* glow */}
+    <div className="relative w-[340px] h-[450px] flex items-center justify-center mx-auto my-20">
+      {/* glow  */}
+      {/* حرکت اسلاید */}
       <EfectCartCoursePage/>
 
       <div className="absolute inset-0 m-3 rounded-[34px] bg-white/90 pointer-events-none" />
+
 
       <div
         dir="rtl"
@@ -55,30 +51,33 @@ const CoursePageCard=(
           backgroundColor: "#0b0b0b",
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/60 to-black/30" />
+        <div className="absolute inset-0 from-black/85 via-black/60 to-black/30" />
 
         {/* like button */}
-        {/*  لایک  */}
         <button
-          onClick={() => setLiked(!liked)}
-          className={`
-            absolute top-3 left-3 z-20 p-2 rounded-full backdrop-blur-sm
-            transition-all duration-300
-            ${liked ? " text-white scale-125" : "bg-white text-white scale-100"}
-          `}
+          aria-label="like"
+          className="ml-60 absolute top-4 left-4 z-20 w-10 h-10 flex items-center justify-center rounded-full bg-black/40 border border-white/10 backdrop-blur-sm"
         >
-          {liked ? likeCount: "🤍"}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-5 h-5 text-white/90"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={1.5}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 20.364l-7.682-7.682a4.5 4.5 0 010-6.364z"
+            />
+          </svg>
         </button>
 
-        {/* rating badge */}
-        <div className="absolute bottom-36 p-5 z-20 justify-around flex items-center gap-20">
-        <NavLink to={`/courcesDetails/${id}`} className="text-white text-[20px] font-extrabold leading-6">
-                {title}
-              </NavLink>
+        {/* courseRate badge */}
+        <div className="absolute bottom-36 left-4 z-20 flex items-center gap-2">
           <div className="w-8 h-8 rounded-md flex items-center justify-center bg-black/40 border border-yellow-400">
             {/* star */}
-            <span className="text-sm font-medium text-yellow-400">{courseRate}</span>
-
             <svg
               width="14"
               height="14"
@@ -92,6 +91,7 @@ const CoursePageCard=(
               />
             </svg>
           </div>
+          <span className="text-sm font-medium text-yellow-400">{courseRate}</span>
         </div>
 
         {/* bottom info */}
@@ -100,11 +100,14 @@ const CoursePageCard=(
 
           <div className="flex items-center justify-between gap-4">
             <div className="flex-1 text-right">
-              
+              <h3 className="text-white text-[20px] font-extrabold leading-6">
+                {title}
+              </h3>
 
-                <div className="flex items-center flex-wrap break-normal text-amber-50 justify-around gap-3">
-                  {/* tichar */}
-                  <div className="flex items-center flex-wrap gap-2 w-32">
+              <div className="mt-2 flex flex-wrap items-center gap-3 text-white/80 text-[13px]">
+                <div className="flex items-center justify-around flex-wrap gap-20">
+                  {/* teacherId */}
+                  <div className="flex items-center gap-2 w-32">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="w-4 h-4"
@@ -126,33 +129,32 @@ const CoursePageCard=(
                         strokeLinejoin="round"
                       />
                     </svg>
-                    <span className=""> {teacherName} </span>
+                    <span className="">{teacherId}</span>
                   </div>
                   {/* /student */}
-                  <div className="flex items-end gap-2 flex-wrap">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="w-4 h-4"
-                      viewBox="0 0 24 24"
+                  <div className="flex items-end gap-2 ">
+                      <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-4 h-4"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <path
+                      d="M16 11c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM8 11c1.657 0 3-1.343 3-3S9.657 5 8 5 5 6.343 5 8s1.343 3 3 3zM12 14c-4 0-7 2-7 4v1h14v-1c0-2-3-4-7-4z"
+                      stroke="currentColor"
+                      strokeWidth="1.0"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       fill="none"
-                    >
-                      <path
-                        d="M16 11c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM8 11c1.657 0 3-1.343 3-3S9.657 5 8 5 5 6.343 5 8s1.343 3 3 3zM12 14c-4 0-7 2-7 4v1h14v-1c0-2-3-4-7-4z"
-                        stroke="currentColor"
-                        strokeWidth="1.0"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        fill="none"
-                      />
-                    </svg>
+                    />
+                  </svg>
                     <span className="mt-2 flex flex-wrap items-center gap-3 text-white/80 text-[13px]">
-                        {statusId} دانشجو
+                      {statusId} دانشجو
                     </span>
                   </div>
                 </div>
 
                 {/* date */}
-                <div className="mt-2 flex flex-wrap items-center gap-3 text-white/80 text-[13px]">
 
                 <div className="flex items-center gap-2 ">
                   <svg
@@ -181,11 +183,12 @@ const CoursePageCard=(
                   </svg>
                   <span> {startTime} (شروع)</span>
                 </div>
-                <div className="flex items-center gap-3 w-auto" >
-                  <div className="text-white w-auto text-lg break-normal font-extrabold">
-                    {priceCourse} تومان
+                <div className="flex items-center gap-2">
+                  <div className="text-white text-lg font-extrabold">
+                    {priceCourse}تومان
                   </div>
-                  <button className="px-4  w-auto py-2 break-normal rounded-full border border-white/30 bg-transparent text-white text-sm font-medium"
+                  <button className="px-4 py-2 rounded-full border
+                  border-white/30 bg-transparent text-white text-sm font-medium"
                   onClick={gotocoursdetails}>
                     مشاهده دوره
                   </button>
@@ -198,4 +201,3 @@ const CoursePageCard=(
     </div>
   );
 }
-export default CoursePageCard
