@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Landing from "../screens/Landing/Landing";
 import LayOut from '../LayOut/LayOut';
@@ -16,70 +16,47 @@ import MainBox_step_3 from "../Components/register/MainBox_step_3";
 import ForgetPass from "../screens/ForgetPassPage";
 import ForgetPassBox_1 from "../Components/forgetPass/ForgetPassBox_1";
 import ForgetPassBox_2 from "../Components/forgetPass/ForgetPassBox_2";
+import RegisterPage from "../screens/registerPage";
+import Dashboard from "../Components/Dashboard/Dashboard";
 
 
-const Router= createBrowserRouter(
-  [
-    {
-      path:"/",
-      element:<LayOut/>,
-      children:[
-        {
-          path:'/',
-          element : <Landing/>
-        },
-        
-        {
-          path:'/register',
-          element:<RegisterPage/>
-        },
-        {
-          path:'/cource',
-          element:<CoursesPage/>
-        },
-        {
-          path:'/courcesDetails/:id',
-          element:<CoursesDetails/>
-        },
-        {
-          path:'/NewsPage',
-          element:<NewsPage/>
-        },
-
-        
-
-      ]
-    },
-    {
-          path:'/login',
-          element:<Login/>
-        },  
-          {
-          path:'/loginnum',
-          element:<Loginnum/>
-        },  
-         {
-    path: "register",
-    element: <RegisterPage />,
+const Router = createBrowserRouter([
+  {
+    path: "/",
+    element: <LayOut />,
     children: [
       {
-        path: "step1",
-        element: <MainBox_step_1/>,
+        path: "/",
+        element: <Landing />,
       },
-      { path: "step2", element: <MainBox_step_2 /> },
-      { path: "step3", element: <MainBox_step_3 /> },
+
+      {
+        path: "/cource",
+        element: <CoursesPage />,
+      },
+      {
+        path: "/courcesDetails/:id",
+        element: <CoursesDetails />,
+      },
+      {
+        path: "/NewsPage",
+        element: <NewsPage />,
+      },
+
     ],
   },
   {
-    path: "forgetPass",
-    element: <ForgetPass />,
-    children: [
-      { path: "step1", element: <ForgetPassBox_1 /> },
-      { path: "step2", element: <ForgetPassBox_2 /> },
-    ],
+    path: "/login",
+    element: <Login />,
   },
-  ]
-)
+  {
+    path: "/loginnum",
+    element: <Loginnum />,
+  },
+  {
+    path: "/Dashboard",
+    element: <Dashboard />,
+  },
+]);
 
-
-export default Router
+export default Router;

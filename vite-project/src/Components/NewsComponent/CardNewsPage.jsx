@@ -1,4 +1,4 @@
-// page 2.courses
+// page 3.News قسمت وسط
 import React, { useState, useEffect } from "react";
 import NewsPageCard from "../LandingComponent/News/NewsCard/NewsPageCard";
 import NewsPageCard2 from "../LandingComponent/News/NewsCard/NewsPageCard";
@@ -7,12 +7,15 @@ import "antd/dist/reset.css";
 import FilterCourses from "../common/FilterCourses";
 import HederDore from "../common/hederDore";
 import apiClient from "../../core/services/interceptor";
+import CardNews from "../LandingComponent/News/CardNews/CardNews";
+import NewsCard from "../LandingComponent/News/NewsCard/NewsCard";
+import NewsCard2 from "../LandingComponent/News/NewsCard/NewsCard2";
 
 const CardNewsPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(9);
   const [isList, setIsList] = useState(false);
-  const [courses, setCourses] = useState([]);
+  const [newses, setNewses] = useState([]);
 
   // نگهداری state فیلترها
   const [filters, setFilters] = useState({
@@ -41,11 +44,12 @@ const CardNewsPage = () => {
           pageSize: itemsPerPage,
           ...filters, // categoryId, levelId, teacherId
         };
-        const res = await apiClient.get("/Home/GetCoursesWithPagination", { params });
-        setCourses(res.data?.courseFilterDtos || []);
+        const res = await apiClient.get("/News", { params });
+        setNewses(res.data?.news || []);
       } catch (err) {
-        console.error("Error fetching courses:", err);
-        setCourses([]);
+        console.error("Error fetching newses:", err);
+        setNewses([]);
+        console.error("خبببر" , newses)
       }
     };
     fetchCourses();
@@ -75,51 +79,49 @@ const CardNewsPage = () => {
 
         {/* دوره‌ها */}
         <div className="mt-7 w-full flex justify-center">
-          <div className="mt-7 flex flex-row flex-wrap items-center justify-between w-[1000px]">
+          <div className="mt-7 flex flex-row flex-wrap items-center justify-between w-[1200px]">
             {isList
-              ? courses.map((item) => (
+              ? newses.map((item) => (
                   <div key={item.courseId} className="mx-auto mb-5 lg:mx-0">
-                    <NewsPageCard2
+                    <NewsCard2
                       title={item.title}
-                      priceCourse={item.cost}
                       courseId={item.courseId}
                       statusId={item.statusId}
                       startTime={item.startTime}
                       teacherName={item.teacherName}
-                      imageAddress={item.imageAddress || "../../../public/imgHero/notfond.jpg"}
-                      tumbImageAddress={item.tumbImageAddress || "../../../public/imgHero/notfond.jpg"}
+                      imageAddress={item.currentImageAddress || "../../../public/imgHero/notfond3.jpg"}
+                      tumbImageAddress={item.tumbImageAddress || "../../../public/imgHero/notfond3.jpg"}
                       likeCount={item.likeCount}
                     />
                   </div>
                 ))
-              : courses.map((item) => (
+              : newses.map((item) => (
                   <div key={item.courseId} className="mx-auto mb-5 lg:mx-0">
-                    <NewsPageCard
-                      id={item.courseId}
+                    <NewsCard
+                      id={item.id}
                       title={item.title}
                       describe={item.describe}
                       isDelete={item.isDelete}
                       active={item.active}
                       miniDescribe={item.miniDescribe}
                       googleTitle={item.googleTitle}
-                      imageAddress={item.imageAddress || "../../../public/imgHero/notfond.jpg"}
+                      imageAddress={item.currentImageAddress || "../../../public/imgHero/notfond3.jpg"}
                       priceCourse={item.cost}
-                      cost={item.levelName}
-                      startTime={item.startTime}
-                      endTime={item.endTime}
-                      tumbImageAddress={item.tumbImageAddress || "../../../public/imgHero/notfond.jpg"}
-                      teacherName={item.teacherName}
+                      startTime={item.insertDate}
+                      endTime={item.updateDate}
+                      tumbImageAddress={item.currentImageAddressTumb || "../../../public/imgHero/notfond3.jpg"}
+                      addUserFullName={item.addUserFullName || "نا شناس "}
                       courseLvlId={item.courseLvlId}
                       lastUpdate={item.lastUpdate}
-                      statusId={item.statusId}
-                      capacity={item.capacity}
-                      courseRate={item.count}
-                      likeCount={item.likeCount}
+                      courseRate={item.currentLikeCount}
+                      likeCount={item.likeId}
+                      currentView={item.currentView}
                     />
                   </div>
                 ))}
           </div>
         </div>
+       
 
         {/* Pagination */}
         <div className="flex justify-center mt-10 mb-10">

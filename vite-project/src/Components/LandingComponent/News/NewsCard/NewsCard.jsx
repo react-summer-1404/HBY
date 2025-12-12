@@ -1,8 +1,8 @@
-// کارت دوره صفحه اول دوره برتر
+// کارت خبر صفحه اول خبر برتر
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import EfectCartNewsCard from "./EfectCartNewsPage";
-
+import EfectCartNewsCard from "../NewsCard/EfectCartNewsPage";
+import EfectCartNewsPage from "../NewsCard/EfectCartNewsPage";
 
 export default function NewsCard({
   id,
@@ -18,34 +18,36 @@ export default function NewsCard({
   startTime,
   endTime,
   tumbImageAddress,
-  teacherId,
+  addUserFullName,
   courseLvlId,
   lastUpdate,
   refetch,
   statusId,
   capacity,
-  courseRate
+  currentView,
+  courseRate,
 }) {
   const navigate = useNavigate();
 
-  const gotocoursdetails= () => {
-    navigate("/courcesDetails/:id")
-  }
+  const gotocoursdetails = () => {
+    navigate("/courcesDetails/:id");
+  };
   return (
     <div className="relative w-[340px] h-[450px] flex items-center justify-center mx-auto my-20">
       {/* glow  */}
       {/* حرکت اسلاید */}
-      <EfectCartCoursePage/>
+      <EfectCartNewsPage />
 
       <div className="absolute inset-0 m-3 rounded-[34px] bg-white/90 pointer-events-none" />
-
 
       <div
         dir="rtl"
         className="relative z-10 w-full h-full rounded-[28px] overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.25)] 
                   transform transition-transform duration-300 hover:scale-105 hover:shadow-xl"
         style={{
-          backgroundImage: imageAddress ? `url(${tumbImageAddress})` : undefined,
+          backgroundImage: imageAddress
+            ? `url(${tumbImageAddress})`
+            : undefined,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundColor: "#0b0b0b",
@@ -91,7 +93,9 @@ export default function NewsCard({
               />
             </svg>
           </div>
-          <span className="text-sm font-medium text-yellow-400">{courseRate}</span>
+          <span className="text-sm font-medium text-yellow-400">
+            {courseRate}
+          </span>
         </div>
 
         {/* bottom info */}
@@ -103,8 +107,8 @@ export default function NewsCard({
               <h3 className="text-white text-[20px] font-extrabold leading-6">
                 {title}
               </h3>
-
-              <div className="mt-2 flex flex-wrap items-center gap-3 text-white/80 text-[13px]">
+              <h4 className=" text-white text-[13px]">{miniDescribe}</h4>
+              <div className="mt-2 flex flex-wrap items-center gap-3 text-white text-[13px]">
                 <div className="flex items-center justify-around flex-wrap gap-20">
                   {/* teacherId */}
                   <div className="flex items-center gap-2 w-32">
@@ -129,10 +133,10 @@ export default function NewsCard({
                         strokeLinejoin="round"
                       />
                     </svg>
-                    <span className="">{teacherId}</span>
+                    <span className="">{addUserFullName}</span>
                   </div>
                   {/* /student */}
-                  <div className="flex items-end gap-2 ">
+                  {/* <div className="flex items-end gap-2 ">
                       <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="w-4 h-4"
@@ -151,7 +155,7 @@ export default function NewsCard({
                     <span className="mt-2 flex flex-wrap items-center gap-3 text-white/80 text-[13px]">
                       {statusId} دانشجو
                     </span>
-                  </div>
+                  </div> */}
                 </div>
 
                 {/* date */}
@@ -183,14 +187,16 @@ export default function NewsCard({
                   </svg>
                   <span> {startTime} (شروع)</span>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-10">
                   <div className="text-white text-lg font-extrabold">
-                    {priceCourse}تومان
+                    {currentView} بازدید کننده
                   </div>
-                  <button className="px-4 py-2 rounded-full border
+                  <button
+                    className="px-4 py-2 rounded-full border
                   border-white/30 bg-transparent text-white text-sm font-medium"
-                  onClick={gotocoursdetails}>
-                    مشاهده دوره
+                    onClick={gotocoursdetails}
+                  >
+                     بیشتر بخوانید
                   </button>
                 </div>
               </div>
