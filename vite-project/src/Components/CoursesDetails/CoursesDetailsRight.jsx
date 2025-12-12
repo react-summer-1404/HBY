@@ -4,9 +4,12 @@ import { PiStar } from "react-icons/pi";
 import { AiOutlineLike } from "react-icons/ai";
 import { AiOutlineDislike } from "react-icons/ai";
 import StarCourceDetails from "../common/StarCourceDetails";
+import notFound from '../../../public/imgHero/notfond.jpg'
 
 
 const CoursesDetailsRight = ({item}) => {
+  // const noImage = item?.currentImageAddress=== null || item?.currentImageAddress === 'undefined' || item?.currentImageAddress === ''
+
   return (
     <div className="w-[60%] flex flex-col justify-center ">
       <div className="mb-6">
@@ -17,7 +20,9 @@ const CoursesDetailsRight = ({item}) => {
       <p className=" font-bold text-gray-600 mb-7 dark:text-gray-400">
         حدود 40 ساعت آموزش جامع و تخصصی ری اکت {item.courseStatusName}!
       </p>
-      <img className="mb-6" src={item.imageAddress} alt="" />
+      {/* <img src={noImage ? notFound : item?.ImageAddress} alt="" /> */}
+
+      <img className="mb-6" src={item.imageAddress || notFound} alt="" />
       <div className="h-[30px] w-[1100px] flex mr-25">
         <div className="flex gap-1 ml-72">
           <p className="text-cyan-700 font-bold dark:text-emerald-300 mr-3 ml-2">

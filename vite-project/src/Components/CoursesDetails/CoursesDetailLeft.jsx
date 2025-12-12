@@ -7,8 +7,9 @@ import AllButton from '../common/AllButton'
 
 
 const CoursesDetailLeft = ({item}) => {
+
   return (
-    <div className='w-[25%] h[616px] -mt-250 border-2 p-3 border-fuchsia-50'>
+    <div className='w-[25%] h[616px] border-2 p-3 border-fuchsia-50'>
     <span>{item.title}</span>
     <div className='flex flex-col justify-between items-center  border-[text-[#9B0EE1]]/20 dark: border-b-fuchsia-600 border-b-2  divide-[#9B0EE1]/20 dark:divide-fuchsia-700 w-[90%]'>
               <div className='flex flex-row justify-between items-center w-[100%] h-20'>

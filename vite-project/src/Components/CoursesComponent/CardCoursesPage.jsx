@@ -86,8 +86,8 @@ const CardCoursesPage = () => {
                       statusId={item.statusId}
                       startTime={item.startTime}
                       teacherName={item.teacherName}
-                      imageAddress={item.imageAddress || "../../../public/imgHero/notfond.jpg"}
-                      tumbImageAddress={item.tumbImageAddress || "../../../public/imgHero/notfond.jpg"}
+                      imageAddress={item.imageAddress || "../../../public/imgHero/notfond3.jpg"}
+                      tumbImageAddress={item.tumbImageAddress || "../../../public/imgHero/notfond3.jpg"}
                       likeCount={item.likeCount}
                     />
                   </div>
@@ -102,12 +102,12 @@ const CardCoursesPage = () => {
                       active={item.active}
                       miniDescribe={item.miniDescribe}
                       googleTitle={item.googleTitle}
-                      imageAddress={item.imageAddress || "../../../public/imgHero/notfond.jpg"}
+                      imageAddress={item.imageAddress || "../../../public/imgHero/notfond3.jpg"}
                       priceCourse={item.cost}
                       cost={item.levelName}
                       startTime={item.startTime}
                       endTime={item.endTime}
-                      tumbImageAddress={item.tumbImageAddress || "../../../public/imgHero/notfond.jpg"}
+                      tumbImageAddress={item.tumbImageAddress || "../../../public/imgHero/notfond3.jpg"}
                       teacherName={item.teacherName}
                       courseLvlId={item.courseLvlId}
                       lastUpdate={item.lastUpdate}

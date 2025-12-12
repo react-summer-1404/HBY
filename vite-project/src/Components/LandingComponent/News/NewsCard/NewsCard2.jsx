@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { CiStar } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
 
-export default function NewsCard2({title}) {
+export default function NewsCard2({title,describe,currentView,startTime,}) {
   const [liked, setLiked] = useState(false);
   
   const navigate = useNavigate();
@@ -12,31 +12,33 @@ export default function NewsCard2({title}) {
 
   return (
     <div
-      className="w-[1100px] max-w-[1200px] h-[260px] shadow shadow-gray-500 mb-7 bg-white rounded-3xl dark:bg-gray-900
+      className="md:w-[1100px] w-[400px] max-w-[1200px] h-[260px] shadow shadow-gray-500 mb-7 bg-white rounded-3xl dark:bg-gray-900
                 flex flex-row-reverse justify-between items-center p-6"
       dir="rtl"
     >
 
       {/*متن */}
       <div className="flex flex-col justify-between h-full w-[60%] pr-4">
-        <h2 className="text-[22px] font-extrabold text-black mb-3 dark:text-amber-50">{title}</h2>
+        <h2 className="text-[22px] font-extrabold text-black mb-3 dark:text-amber-50">                   تیتر خبر :  {title} 
+        </h2>
 
         <div className="flex items-center gap-2 text-[14px] text-gray-700 mb-2 dark:text-gray-400">
-          <span>استاد پورمرادادی</span>
+          <span>                    <h1>  {describe}</h1>
+          </span>
         </div>
 
         <div className="flex flex-col gap-1 text-[13px] text-gray-700">
-          <div className="flex items-center gap-2 dark:text-gray-400">20 دانشجو</div>
-          <div className="flex items-center gap-2 dark:text-gray-400">1404/02/14 (شروع)</div>
+          <div className="flex items-center gap-2 dark:text-gray-400"> 
+                                   <h1> بازدید کننده : {currentView}</h1>
+          </div>
+          <div className="hidden md:flex items-center gap-2 dark:text-gray-400">{startTime} (شروع)</div>
         </div>
 
-        <div className="flex items-center justify-between mt-4">
-          <div className="text-purple-600 text-xl font-extrabold dark:text-fuchsia-400">
-            3,500,000 تومان
-          </div>
+        <div className="flex items-center justify-end mt-4">
+        
           <button className="px-5 py-2 border border-purple-500 text-purple-600 rounded-full dark:text-fuchsia-400 hover:bg-purple-300 transition"
           onClick={gotocourseditails}>
-            مشاهده دوره
+            مشاهده خبر
           </button>
         </div>
       </div>

@@ -1,24 +1,32 @@
 import React from "react";
-import Rectangle from './Rectangle';
+import Rectangle from './RectangleNews';
 import { PiStar } from "react-icons/pi";
 import { AiOutlineLike } from "react-icons/ai";
 import { AiOutlineDislike } from "react-icons/ai";
 import StarCourceDetails from "../common/StarCourceDetails";
+import notFound from '../../../public/imgHero/notfond.jpg';
 
 
-const CoursesDetailsRight = ({item}) => {
+const NewsDetailsRight = ({item}) => {
+  const noImage = item?.currentImageAddress=== null || item?.currentImageAddress === 'undefined' || item?.currentImageAddress === ''
+
   return (
-    <div className="w-[60%] flex flex-col justify-center ">
+    <div className="w-[60%] flex flex-col justify-center items-start ">
       <div className="mb-6">
-        <h2 className="text-3xl  font-bold dark:text-amber-50">
-          {item.googleTitle}
+        <h2 className="text-3xl text-amber-600 font-bold dark:text-amber-50">
+          {item?.googleTitle}
         </h2>
       </div>
       <p className=" font-bold text-gray-600 mb-7 dark:text-gray-400">
-        حدود 40 ساعت آموزش جامع و تخصصی ری اکت {item.courseStatusName}!
+        {item?.googleDescribe}!
       </p>
-      <img className="mb-6" src={item.imageAddress} alt="" />
-      <div className="h-[30px] w-[1100px] flex mr-25">
+      <div className='h-full flex justify-center items-center mb-10 w-[90%] '> 
+
+      <img style={{width:900 ,height:440 }} src={noImage ? notFound : item?.currentImageAddress} alt="" />  
+      </div>
+            {/* <img className="mb-6" src={item?.currentImageAddress || notFound} alt="" /> */}
+      
+          <div className="h-[30px] w-[1100px] flex mr-25">
         <div className="flex gap-1 ml-72">
           <p className="text-cyan-700 font-bold dark:text-emerald-300 mr-3 ml-2">
             میتونی به ما امتیاز بدی
@@ -33,11 +41,9 @@ const CoursesDetailsRight = ({item}) => {
             <div className="flex mt-1">
               <AiOutlineLike />
             </div>
-            <p>{item.likeCount}</p>
             <div className="flex mt-1.5">
               <AiOutlineDislike />
             </div>
-            <p>{item.dissLikeCount}</p>
           </div>
         </div>
       </div>
@@ -46,4 +52,4 @@ const CoursesDetailsRight = ({item}) => {
   );
 };
 
-export default CoursesDetailsRight;
+export default NewsDetailsRight;

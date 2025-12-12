@@ -34,7 +34,7 @@ const CoursesDetails = () => {
   return (
     <div>
       {/* up */}
-      <div className="flex justify-center gap-5 mt-40 mx-auto items-center w-full h-full">
+      <div className="flex justify-center gap-5 mt-30 mx-auto items-start  w-full h-full">
         {/* right */}
         <CoursesDetailsRight item={detailsC} />
         {/* left */}

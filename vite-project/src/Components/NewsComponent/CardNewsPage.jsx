@@ -49,7 +49,7 @@ const CardNewsPage = () => {
       } catch (err) {
         console.error("Error fetching newses:", err);
         setNewses([]);
-        console.error("خبببر" , newses)
+        console.error("خبببر بهارررررررررررررر" , newses)
       }
     };
     fetchCourses();
@@ -85,13 +85,14 @@ const CardNewsPage = () => {
                   <div key={item.courseId} className="mx-auto mb-5 lg:mx-0">
                     <NewsCard2
                       title={item.title}
-                      courseId={item.courseId}
+                      describe={item.describe}
                       statusId={item.statusId}
-                      startTime={item.startTime}
+                      startTime={item.insertDate}
                       teacherName={item.teacherName}
                       imageAddress={item.currentImageAddress || "../../../public/imgHero/notfond3.jpg"}
                       tumbImageAddress={item.tumbImageAddress || "../../../public/imgHero/notfond3.jpg"}
-                      likeCount={item.likeCount}
+                      likeCount={item.likeId}
+                      currentView={item.currentView}
                     />
                   </div>
                 ))

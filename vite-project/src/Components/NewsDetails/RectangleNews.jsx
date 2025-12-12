@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import CarbarCommments from "./CarbarCommments";
+import CarbarCommments from "./NewsCarbarCommments";
 import { useParams } from "react-router-dom";
 import apiClient from "../../core/services/interceptor";
 
 
-const Rectangle = ({item}) => {
+const RectangleNews = ({item}) => {
 
   const { id } = useParams();
 
@@ -13,7 +13,7 @@ const Rectangle = ({item}) => {
 
   const getComment = async () => {
     try {
-      const res = await apiClient.get(`/Course/GetCourseCommnets=${id}`);
+      const res = await apiClient.get(`/News/GetNewsComments?NewsId=${id}`);
 
       setComment(res?.data);
     } catch (err) {
@@ -47,7 +47,10 @@ const Rectangle = ({item}) => {
         رسیدید که الان بهترین زمان برای یادگیری ری اکت هست. پس از الان با تمام
         اطمینان خیالتون رو راحت می کنیم : شما با دوره آموزش ری اکت سبزلرن، نه
         تنها به این تکنولوژی .... */}
-        {item.courseStatusName}
+        {item?.miniDescribe}
+        {item?.miniDescribe}
+        {item?.miniDescribe}
+        
       </p>
       <div className="flex">
         <p className="text-3xl text-fuchsia-700 font-bold dark:text-fuchsia-400">
@@ -58,9 +61,9 @@ const Rectangle = ({item}) => {
           <p className="mt-0.5">نظر شما</p>
         </div>
       </div>
-      <CarbarCommments comment={comment} />
+      <CarbarCommments comment={comment?.commentDtos} />
     </div>
   );
 };
 
-export default Rectangle;
+export default RectangleNews;
