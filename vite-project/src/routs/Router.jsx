@@ -11,6 +11,7 @@ import CoursePageCard2 from "../Components/LandingComponent/Slider/CourseCard/Co
 import CoursesPage2 from "../Components/CoursesComponent/coursesPage2";
 import NewsPage from "../Components/NewsComponent/NewsPage";
 import Dashboard from "../Components/Dashboard/Dashboard";
+import NewsDetails from "../Components/NewsDetails/NewsDetails";
 
 // import { Login } from '../screens/login/login';
 
@@ -39,6 +40,10 @@ const Router = createBrowserRouter([
       {
         path: "/NewsPage",
         element: <NewsPage />,
+      },
+      {
+        path: "/NewsDetails/:id",
+        element: <NewsDetails/>,
       },
 
       // {

@@ -1,25 +1,16 @@
-// CourseCard.jsx
+// CourseCard.jsx dar news  landing
 import React from "react";
+import { NavLink} from "react-router-dom";
 
-/**
- * Props:
- * - title
- * - instructor
- * - students
- * - text
- * - price
- * - rating (عدد)
- * - bgImage (url)
- */
-export default function CardNews({
-  item
-//   title = "عنوان خبر",
-//   text = "توضیحات",
-//   instructor = "نویسنده",
-  // rating = 5,
-  // bgImage = "../../../../../public/news/n2.png",
-//   view = "بازدید"
-}) {
+export default function CardNews({item , id})
+{
+  
+// const navigate = useNavigate();
+
+//   const gotoNewsdetails = () => {
+
+//     navigate("/NewsDetails/:id");};
+
   return (
     <div className="relative w-[340px] h-[450px] flex items-center justify-center my-5">
       {/* glow */}
@@ -120,8 +111,13 @@ export default function CardNews({
                         <h1>{item.currentView} بازدید کننده</h1>
                     </div>
                 <div className="flex items-center  gap-2">
-                  <button className="px-4 py-2 left-5 rounded-full border border-white/30 bg-transparent text-white text-sm font-medium hover:bg-white/10 transition">
-                    بیشتر بخوانید</button>
+                  <NavLink to={`/NewsDetails/${id}`}
+                   className="px-4 py-2 left-5 rounded-full border border-white/30 bg-transparent text-white text-sm font-medium hover:bg-white/10 transition"
+                  
+                    // onClick={gotoNewsdetails}
+                  >
+                    بیشتر بخوانید </NavLink>
+
                 </div>
                  </div>
             </div>

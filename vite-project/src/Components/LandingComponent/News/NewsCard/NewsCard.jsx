@@ -3,6 +3,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import EfectCartNewsCard from "../NewsCard/EfectCartNewsPage";
 import EfectCartNewsPage from "../NewsCard/EfectCartNewsPage";
+import { NavLink } from "react-router-dom";
 
 export default function NewsCard({
   id,
@@ -29,8 +30,8 @@ export default function NewsCard({
 }) {
   const navigate = useNavigate();
 
-  const gotocoursdetails = () => {
-    navigate("/courcesDetails/:id");
+  const gotoNewsdetails = () => {
+    navigate("/NewsDetails/:id");
   };
   return (
     <div className="relative w-[340px] h-[450px] flex items-center justify-center mx-auto my-20">
@@ -191,13 +192,13 @@ export default function NewsCard({
                   <div className="text-white text-lg font-extrabold">
                     {currentView} بازدید کننده
                   </div>
-                  <button
+                  <NavLink to={`/NewsDetails/${id}`}
                     className="px-4 py-2 rounded-full border
                   border-white/30 bg-transparent text-white text-sm font-medium"
-                    onClick={gotocoursdetails}
+                    // onClick={gotoNewsdetails}
                   >
-                     بیشتر بخوانید
-                  </button>
+                     بیشتر بخوانید  
+                  </NavLink>
                 </div>
               </div>
             </div>

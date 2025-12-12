@@ -7,6 +7,8 @@ import { Search01Icon } from "hugeicons-react";
 import ScrollToTop from "react-scroll-to-top";
 
 const CoursesPage = ({ setFilterState }) => {
+
+  
   return (
     <div className="w-full">
       <div className="flex flex-col  justify-center items-center my-15">

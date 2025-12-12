@@ -3,7 +3,7 @@ import { AiOutlineLike } from "react-icons/ai";
 import { AiOutlineDislike } from "react-icons/ai";
 import { HiArrowUturnRight } from "react-icons/hi2";
 
-const CarbarCommments = ({comment}) => {
+const NewsCarbarCommments = ({comment}) => {
   
   return (
     <div>
@@ -43,5 +43,5 @@ const CarbarCommments = ({comment}) => {
   )
 }
 
-export default CarbarCommments
+export default NewsCarbarCommments
 
