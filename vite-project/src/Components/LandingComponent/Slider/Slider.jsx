@@ -51,6 +51,19 @@ const Slider = () => {
   return (
     <>
       <div className="flex flex-col justify-center items-center my-10 overflow-hidden">
+      <div className="flex w-full justify-center">
+          <img
+            className="transform scale-x-[-1]"
+            src="../../../../public/span-icon/vect.svg"
+            alt=""
+          />
+          <h4 className="mb-2 dark:text-amber-50">با هر دوره یک قدم جلوتر</h4>
+          <img
+            className="transform scale-x-[-1]"
+            src="../../../../public/span-icon/vect(1).svg"
+            alt=""
+          />
+        </div>
         <h1 className="font-bold text-2xl dark:text-amber-50">
           همه چیز را در دوره های ما یاد بگیر
         </h1>
