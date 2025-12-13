@@ -4,7 +4,7 @@ import RectangleLeft from './Rectangle/RectangleLeft'
 
 function Rectangle() {
   return (
-    <div className='flex'>
+    <div className='flex lg:flex-row flex-col gap-28'>
       {/* right */}
       <RectangleRight/>
       {/* left */}
