@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { CiStar } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-export default function NewsCard2({title,describe,currentView,startTime,}) {
+export default function NewsCard2({id,title,describe,currentView,startTime,}) {
   const [liked, setLiked] = useState(false);
   
   const navigate = useNavigate();
@@ -34,13 +35,20 @@ export default function NewsCard2({title,describe,currentView,startTime,}) {
           <div className="hidden md:flex items-center gap-2 dark:text-gray-400">{startTime} (شروع)</div>
         </div>
 
-        <div className="flex items-center justify-end mt-4">
+        {/* <div className="flex items-center justify-end mt-4">
         
           <button className="px-5 py-2 border border-purple-500 text-purple-600 rounded-full dark:text-fuchsia-400 hover:bg-purple-300 transition"
           onClick={gotocourseditails}>
             مشاهده خبر
           </button>
-        </div>
+        </div> */}
+         <NavLink to={`/NewsDetails/${id}`}
+                    className="px-4 py-2 rounded-full border
+                  border-black bg-transparent w-28  text-black text-sm font-medium mx-120"
+                    // onClick={gotoNewsdetails}
+                  >
+                     مشاهده خبر 
+                  </NavLink>
       </div>
 
       {/* عکس */}
