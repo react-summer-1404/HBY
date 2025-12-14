@@ -4,14 +4,14 @@ const TeachersBox = ({ src, teacherName, description, coarseNum=6,specialWNum=2,
   const [clicked,setClicked]=useState(true);
   return (
     <>
-      <div className={clicked?"hidden":"select-none transition-[2s] flex flex-col items-center px-8 py-6 absolute top-20 bottom-0 right-0 left-0 mx-auto w-[432px] h-[400px] rounded-[32px] bg-[#F5F5F5]"}>
+      <div className={clicked?"hidden":"select-none transition-[2s] flex flex-col items-center px-8 py-6 absolute top-20 bottom-0 right-0 left-0 mx-auto w-1/1 md:w-[432px] max-h-[500px] md:h-[400px] rounded-[32px] bg-[#F5F5F5]"}>
         <button onClick={()=>setClicked(true)} className="self-end text-red border-red cursor-pointer bg-[#ED053F14] p-1.5 rounded-[8px]">بستن</button>
         <img src={src} className="rounded-[100%] w-[150px] h-[150px] mt-6" />
         <p className="inline-block mt-[8px] mb-[4px] px-6 bg-right bg-no-repeat bg-size-[22px_22px] bg-[url(/teacherspage/learn.png)] font-semibold text-xl">
           {teacherName}
         </p>
         <p className="inline-block text-md ">{description}</p>
-        <div className="flex gap-4 justify-between mt-4 items-center *:text-nowrap">
+        <div className="flex flex-col md:flex-row md:flex-nowrap flex-wrap gap-4 justify-between mt-4 items-center *:text-nowrap">
           <p className="inline-block pr-6 bg-right bg-no-repeat bg-size-[22px_22px] bg-[url(/teacherspage/textsth.png)] text-md">
             {coarseNum + " دوره"}
           </p>

@@ -1,8 +1,19 @@
 import React from "react";
 import TeachersBox from "../../Components/teachersPage/TeachersBox";
+import SearchFooter from "../../Components/common/SearchFooter";
 
 const TeachersPage = () => {
-  return <TeachersBox src="/teacherspage/test.png" Name="تان یتانیس ستای" teacherName="ادولف هیتلر" description="یک ادم خوب" acheivement=" یتبم نستم ستتسن"/>;
+  return (
+    <>
+      <TeachersBox
+        src="/teacherspage/test.png"
+        Name="تان یتانیس ستای"
+        teacherName="ادولف هیتلر"
+        description="یک ادم خوب"
+        acheivement=" یتبم نستم ستتسن"
+      />
+    </>
+  );
 };
 
 export default TeachersPage;
