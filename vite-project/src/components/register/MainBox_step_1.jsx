@@ -36,7 +36,7 @@ const MainBox_step_1 = (values) => {
       }}
       validationSchema={validation}
     >
-      <Form className="w-[430px]  flex flex-col items-center">
+      <Form className="w-[430px]  flex flex-col items-center space-y-3">
         <p className="text-lg select-none">{"خوش امدید :)"}</p>
         <h3 className="text-xl font-bold mt-[4px] select-none">
           {"ایجاد حساب کاربری"}
@@ -45,7 +45,7 @@ const MainBox_step_1 = (values) => {
           <Field
             name="gmail"
             className="text-sm font-semibold rtl w-1/1 bg-[#4B4B4B14] select-none h-[48px] border-0 pl-[16px] pr-[40px] py-[4px] rounded-[8px]  mt-[32px]"
-            placeholder="شماره تلفن همراه..."
+            placeholder="ایمیل..."
           />
           <ErrorMessage
             name="gmail"

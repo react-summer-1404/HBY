@@ -1,5 +1,6 @@
 import React from 'react'
 import DarcModeComponent from "../LandingComponent/HeaderComponent/DarcModeComponent";
+import { NavLink } from 'react-router-dom';
 
 const HederDashboard = () => {
   return (
@@ -8,10 +9,12 @@ const HederDashboard = () => {
       {/* چپیه */}
       <div className="  flex gap-2 " dir="rtl">
         <div className="w-[35px] h-[35px]  p-1 mt-1 hidden lg:block">
-          <img
+         <NavLink to="/">
+         <img
             className="w-[30px] h-[30px]"
             src="/public/dashbord/homesvg.svg"
           />
+         </NavLink>
         </div>
         <div className="w-[35px] h-[35px] p-0.5 mt-1">
           <DarcModeComponent />

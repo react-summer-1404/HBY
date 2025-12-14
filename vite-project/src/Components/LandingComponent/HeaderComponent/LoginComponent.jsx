@@ -9,10 +9,14 @@ const LoginComponent = () => {
     navigate("/login");
   };
 
+  const handleDashboradClick = () => {
+    navigate("/Dashboard");
+  }; 
+
   return (
     <div className="flex justify-center items-center w-[150px] h-[40px] pr-[23px] pt-[6px] pl-[23px] gap-[8px] bg-[#9B0EE1] rounded-md text-amber-50">
       {!getData("token") && (<button onClick={handleLoginClick}>ورود/ثبت نام</button>)}
-      {getData("token") && (<button onClick={handleLoginClick}>پروفایل کاربر </button>)}
+      {getData("token") && (<button onClick={handleDashboradClick}>پروفایل کاربر </button>)}
     </div>
   );
 };

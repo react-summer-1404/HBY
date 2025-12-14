@@ -18,7 +18,9 @@ import ForgetPassBox_1 from "../Components/forgetPass/ForgetPassBox_1";
 import ForgetPassBox_2 from "../Components/forgetPass/ForgetPassBox_2";
 import Dashboard from "../Components/Dashboard/Dashboard";
 import NewsDetails from "../Components/NewsDetails/NewsDetails";
+import { getData } from "../core/localStorage/localStorage";
 
+const token = getData("token");
 
 const Router = createBrowserRouter([
   {
@@ -79,7 +81,7 @@ const Router = createBrowserRouter([
   },
   {
     path: "/Dashboard",
-    element: <Dashboard />,
+    element:  token ? <Dashboard /> : <Landing />,
   },
 ]);
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { FaUser, FaLock, FaBars } from "react-icons/fa";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import motor from "./../../assets/login/Capture.png";
@@ -22,12 +22,14 @@ export const Login = () => {
     navigate("/loginnum");
   };
 
+
+
   const handleLogin = async (values) => {
     try {
       const res = await apiClient.post(`/Sign/Login`, values);
       toast.success(res.data.message);
-      navigate('/')
       setData("token",res.data.token)
+      navigate("/Dashboard", { replace: true })
     } catch (error) {}
   };
 
@@ -131,7 +133,7 @@ export const Login = () => {
                 type="submit"
                 className="w-full bg-teal-600 text-white py-3 rounded-lg text-lg hover:bg-teal-700 transition"
               >
-                Click
+              ورود
               </button>
             </Form>
           </Formik>
@@ -147,12 +149,12 @@ export const Login = () => {
    
           <p className="text-center mt-6 text-base text-gray-600">
             حساب کاربری نداری؟{" "}
-            <a
-              href="#"
+            <NavLink
+              to="/register/step1"
               className="text-purple-600 font-semibold hover:underline"
             >
               ثبت نام
-            </a>
+            </NavLink>
           </p>
         </div>
       </div>
@@ -171,7 +173,7 @@ export const Login = () => {
 
       <img
         src={wizard}
-        className="block absolute h-[60px] top-[120px] right-[180px]  lg:hidden"
+        className="block absolute h-[60px] top-[120px] right-[100px]  lg:hidden"
       />
 
       <img

@@ -34,22 +34,29 @@ const MainBox_step_1 = () => {
       }}
       validationSchema={validation}
     >
-      <Form className="w-[430px]  flex flex-col items-center">
+      <Form className="w-[430px]  flex flex-col items-center space-y-3">
         <p className="text-lg select-none">{"خوش امدید :)"}</p>
         <h3 className="text-xl font-bold mt-[4px] select-none">
           {"ایجاد حساب کاربری"}
         </h3>
-        <div className="relative w-1/1">
+        <div className="relative w-1/1  ">
           <Field
             name="phoneNumber"
             className="text-sm font-semibold rtl w-1/1 bg-[#4B4B4B14] select-none h-[48px] border-0 pl-[16px] pr-[40px] py-[4px] rounded-[8px]  mt-[32px]"
-            placeholder="نلتخلتخهت"
+            placeholder="شماره همراه"
           />
-          <ErrorMessage name="phoneNumber"/>
-          <img
+          <ErrorMessage
+            name="phoneNumber"
+            render={(msg) => (
+              <div className="py-3 mt-4 mb-4 pr-2 rounded-[8px] dark:bg-gray-800 bg-amber-100">
+                {msg}
+              </div>
+            )}
+          />
+          {/* <img
             src="/register/email.png"
             className="h-[20px] w-[20px] absolute bottom-[10.5px] right-[8px] my-1 "
-          />
+          /> */}
         </div>
         <div className="relative w-1/1">
           <Field
@@ -58,11 +65,18 @@ const MainBox_step_1 = () => {
             placeholder="رمز عبور"
             type="password"
           />
-          <ErrorMessage name="password"/>
-          <img
+          <ErrorMessage
+            name="password"
+            render={(msg) => (
+              <div className="py-3 mt-4 mb-4 pr-2 rounded-[8px] dark:bg-gray-800 bg-amber-100">
+                {msg}
+              </div>
+            )}
+          />
+          {/* <img
             src="/register/password.png"
             className="h-[20px] w-[20px] absolute bottom-[10.5px] right-[8px] my-1 "
-          />
+          /> */}
         </div>
         <RegisterButton innerHtml="تایید" className="bg-[#3C8B85] text-white" />
         <p className="select-none">
