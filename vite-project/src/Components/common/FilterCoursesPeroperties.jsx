@@ -3,21 +3,21 @@ import { DownOutlined } from '@ant-design/icons';
 import { Dropdown, Space, Typography } from 'antd';
 import SearchTeacher from './SearchTeacher';
 const items = [
-  {
-    key: '1',
-    label: <SearchTeacher/>,
-  },
+  // {
+  //   key: '1',
+  //   label: <SearchTeacher/>,
+  // },
   {
     key: '2',
-    label: 'Item 1',
+    label: 'محبوب ترین',
   },
   {
     key: '3',
-    label: 'Item 2',
+    label: ' گران ترین',
   },
   {
     key: '4',
-    label: 'Item 3',
+    label: 'ارزان ترین',
   },
 
 ];
@@ -30,8 +30,8 @@ const FilterCoursesPeroperties = () => (
     }}
   >
     <Typography.Link >
-      <Space className="border-2 bg-gray-300 border-gray-400 w-[260px] h-[48px] rounded-[8px] flex justify-between p-2 text-gray-600  dark:text-amber-50 dark:bg-gray-600 dark:border-gray-700 ">
-        اساتید
+      <Space className="font:yekan border-2 bg-gray-300 border-gray-400 w-[260px] h-[48px] rounded-[8px] flex justify-between p-2 text-gray-600  dark:text-amber-50 dark:bg-gray-600 dark:border-gray-700 ">
+   مرتب شده بر اساس
         
         <DownOutlined />
       </Space>
